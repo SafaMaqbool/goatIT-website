@@ -4,6 +4,8 @@ import Hero from "./components/Hero";
 import { FloatingNav } from "@/components/ui/FloatingNav";
 import { FaHome } from "react-icons/fa";
 import { IoPerson } from "react-icons/io5";
+import About from "./components/About";
+import Services from "./components/Services";
 
 export default function Home() {
   return (
@@ -11,6 +13,8 @@ export default function Home() {
       <div className="max-w-7xl w-full">
         <Navbar/>
         <Hero />
+        <About/>
+        <Services/>
       </div>
     </main>
   );

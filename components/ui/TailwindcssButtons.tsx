@@ -15,7 +15,7 @@ const TailwindCssButtons = ({
 }) => {
   return (
     <button
-      className="relative w-full inline-flex h-12 overflow-hidden rounded-lg p-[1px] 
+      className="relative w-full inline-flex h-12 overflow-hidden rounded-full p-[1px] 
       md:w-60 md:mt-10 focus:outline-none border border-emerald-600 hover:border-emerald-400"
       onClick={handleClick}
     >

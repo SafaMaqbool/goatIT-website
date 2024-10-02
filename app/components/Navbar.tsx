@@ -26,7 +26,7 @@ const Navbar = () => {
 
         {/* Links Section for Desktop */}
         <div className="hidden lg:flex space-x-6 items-center">
-          {["Home", "About", "Services", "Jobs", "Contact"].map(
+          {["Home", "About", "Services", "Jobs", "Testimonials","Contact"].map(
             (item, index) => (
               <Link
                 key={index}
@@ -61,7 +61,7 @@ const Navbar = () => {
           </div>
           {/* Fullscreen without rounded edges */}
           <div className="flex flex-col items-center space-y-4 py-4 text-lg w-full">
-            {["Home", "About", "Services", "Jobs", "Contact"].map(
+            {["Home", "About", "Services", "Jobs","Testimonials", "Contact"].map(
               (item, index) => (
                 <Link
                   key={index}
