@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import { ThemeProvider } from "@/app/provider"
+import { ThemeProvider } from "@/app/provider";
+import Navbar from "@/app/components/Navbar"; // Adjust the path to where your Navbar is located
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -29,16 +30,15 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {" "}
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <Navbar /> {/* Add Navbar here */}
+          {children} {/* Render children below the Navbar */}
         </ThemeProvider>
-       
       </body>
     </html>
   );

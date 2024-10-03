@@ -1,99 +1,45 @@
+"use client";
 import React from "react";
-import { HiArrowRight } from "react-icons/hi"; // Import the arrow icon
+
+const services = [
+  {
+    title: "ERP Development",
+    description:
+      "Comprehensive Odoo ERP setup tailored to streamline your business processes.",
+    link: "/services/erp-development", // Link to detailed page
+  },
+  {
+    title: "Web Development",
+    description: "Custom website development to enhance your online presence.",
+    link: "/services/web-development", // Link to detailed page
+  },
+];
 
 const Services = () => {
   return (
-    <div className="m-4 p-4">
-      <h2 className="text-3xl text-blue-100 uppercase leading-snug tracking-wide font-bold text-center mb-8">
-        Our Services
-      </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {/* Service 1 */}
-        <div className="bg-white shadow-lg rounded-lg overflow-hidden">
-          <img
-            src="https://example.com/service1.jpg"
-            alt="Service 1"
-            className="object-cover w-full h-48 rounded-t-lg"
-          />
-          <div className="p-4">
-            <h3 className="text-xl font-bold">Consulting Services</h3>
-            <p className="mt-2">
-              We provide expert consulting services to help businesses streamline their operations and improve efficiency.
-            </p>
-          </div>
-        </div>
-        {/* Service 2 */}
-        <div className="bg-white shadow-lg rounded-lg overflow-hidden">
-          <img
-            src="https://example.com/service2.jpg"
-            alt="Service 2"
-            className="object-cover w-full h-48 rounded-t-lg"
-          />
-          <div className="p-4">
-            <h3 className="text-xl font-bold">Software Development</h3>
-            <p className="mt-2">
-              Our team specializes in custom software development tailored to meet your unique business requirements.
-            </p>
-          </div>
-        </div>
-        {/* Service 3 */}
-        <div className="bg-white shadow-lg rounded-lg overflow-hidden">
-          <img
-            src="https://example.com/service3.jpg"
-            alt="Service 3"
-            className="object-cover w-full h-48 rounded-t-lg"
-          />
-          <div className="p-4">
-            <h3 className="text-xl font-bold">IT Support</h3>
-            <p className="mt-2">
-              We offer comprehensive IT support to ensure your systems run smoothly and efficiently.
-            </p>
-          </div>
-        </div>
-        {/* Service 4 */}
-        <div className="bg-white shadow-lg rounded-lg overflow-hidden">
-          <img
-            src="https://example.com/service4.jpg"
-            alt="Service 4"
-            className="object-cover w-full h-48 rounded-t-lg"
-          />
-          <div className="p-4">
-            <h3 className="text-xl font-bold">Digital Marketing</h3>
-            <p className="mt-2">
-              Enhance your online presence with our tailored digital marketing strategies.
-            </p>
-          </div>
-        </div>
-        {/* Service 5 */}
-        <div className="bg-white shadow-lg rounded-lg overflow-hidden">
-          <img
-            src="https://example.com/service5.jpg"
-            alt="Service 5"
-            className="object-cover w-full h-48 rounded-t-lg"
-          />
-          <div className="p-4">
-            <h3 className="text-xl font-bold">Cloud Solutions</h3>
-            <p className="mt-2">
-              Leverage the power of the cloud with our innovative solutions designed for scalability and efficiency.
-            </p>
-          </div>
-        </div>
-        {/* Service 6 */}
-        <div className="bg-white shadow-lg rounded-lg overflow-hidden">
-          <img
-            src="https://example.com/service6.jpg"
-            alt="Service 6"
-            className="object-cover w-full h-48 rounded-t-lg"
-          />
-          <div className="p-4">
-            <h3 className="text-xl font-bold">Cybersecurity</h3>
-            <p className="mt-2">
-              Protect your business with our comprehensive cybersecurity solutions that safeguard your data.
-            </p>
-          </div>
+    <section className="py-16 bg-gray-900">
+      <div className="max-w-6xl mx-auto text-center">
+        <h2 className="text-4xl font-bold mb-8 text-white">Our Services</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {services.map((service, index) => (
+            <div
+              key={index}
+              className="bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-lg transition"
+            >
+              <h3 className="text-2xl font-semibold mb-2 text-green-400">
+                {service.title}
+              </h3>
+              <p className="text-gray-300 mb-4">{service.description}</p>
+              <a href={service.link}>
+                <button className="inline-flex h-12 animate-shimmer items-center justify-center rounded-md border border-green-400 bg-[linear-gradient(110deg,#2e7d32,45%,#388e3c,55%,#2e7d32)] bg-[length:200%_100%] px-6 font-medium text-white transition-colors focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-offset-2 focus:ring-offset-gray-900">
+                  Learn More
+                </button>
+              </a>
+            </div>
+          ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
