@@ -1,8 +1,8 @@
+import { ThemeProvider } from "@/app/provider";
+import Navbar from "@/components/Navbar"; // Adjust the path to where your Navbar is located
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import { ThemeProvider } from "@/app/provider";
-import Navbar from "@/components/Navbar"; // Adjust the path to where your Navbar is located
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",

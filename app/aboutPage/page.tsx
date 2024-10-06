@@ -1,4 +1,3 @@
-import React from "react";
 import { HiArrowRight } from "react-icons/hi"; // Import the arrow icon
 
 const About = () => {

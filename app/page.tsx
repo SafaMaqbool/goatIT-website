@@ -1,10 +1,5 @@
-import Image from "next/image";
-import Navbar from "../components/Navbar";
-import Hero from "../components/Hero";
-import { FloatingNav } from "@/components/ui/FloatingNav";
-import { FaHome } from "react-icons/fa";
-import { IoPerson } from "react-icons/io5";
 import About from "../components/About";
+import Hero from "../components/Hero";
 import Services from "../components/Services";
 
 export default function Home() {

@@ -1,10 +1,10 @@
 "use client";
-import React, { useState, useEffect, useRef } from "react";
-import Link from "next/link";
-import Image from "next/image";
 import GoatLogo from "@/public/goatlogo.png"; // Adjust the path
-import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import { motion, Variants } from "framer-motion";
+import Image from "next/image";
+import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
+import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 
 const itemVariants: Variants = {
   open: {

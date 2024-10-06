@@ -1,9 +1,6 @@
 import { Spotlight } from "@/components/ui/Spotlight";
-import TailwindCssButtons from "@/components/ui/TailwindcssButtons";
 import { TextGenerateEffect } from "@/components/ui/TextGenerateEffect";
-import React from "react";
 import { FaPhoneVolume } from "react-icons/fa6";
-import { HiArrowRight } from "react-icons/hi";
 
 const Hero = () => {
   const words = `WE TRANSFORM YOUR BUSINESS WITH TAILORED ODOO ERP & WEB DEVELOPMENT SOLUTIONS`;
