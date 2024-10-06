@@ -1,6 +1,7 @@
 "use client";
+
 import { useEffect, useState } from "react";
-import { HiArrowRight } from "react-icons/hi"; // Import the arrow icon
+import { HiArrowRight } from "react-icons/hi";
 
 const images = [
   "https://i.insider.com/57e14d88b0ef97f0288b6a1d?width=1136&format=jpeg",
