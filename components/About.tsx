@@ -28,16 +28,18 @@ const About = () => {
   }, []);
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 m-4 p-4">
+    <div className="flex flex-col items-center justify-center md:flex-row gap-8 m-4 p-4">
       {/* Animated Image Section */}
       <div className="flex justify-center mb-4 md:mb-0 order-1 md:order-2">
-        <div className="relative aspect-video w-full h-0 pb-[56.25%]">
+        <div className="relative aspect-video max-w-2xl w-full">
           {" "}
           {/* 16:9 Aspect Ratio */}
           <img
             src={images[currentImageIndex]}
+            width={1280}
+            height={720}
             alt="Consulting"
-            className={`absolute inset-0 object-cover w-full h-full rounded-lg transition-opacity duration-500 ${
+            className={`object-cover w-full h-full rounded-lg transition-opacity duration-500 ${
               fade ? "opacity-0" : "opacity-100"
             }`}
           />
@@ -49,7 +51,7 @@ const About = () => {
         <h2 className="text-3xl text-blue-100 uppercase leading-snug tracking-wide font-bold">
           Who We Are?
         </h2>
-        <p className="mt-4">
+        <p className="mt-4 max-w-[50ch]">
           At Goat IT Consulting, we empower businesses to navigate the digital
           landscape with innovative IT solutions tailored to your needs.
         </p>
