@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
-import { HiArrowRight } from "react-icons/hi";
+import { useEffect, useState } from 'react';
+import { HiArrowRight } from 'react-icons/hi';
 
 const images = [
-  "https://i.insider.com/57e14d88b0ef97f0288b6a1d?width=1136&format=jpeg",
-  "https://images.inc.com/uploaded_files/image/1920x1080/getty_504987926_183876.jpg",
-  "https://www.betterup.com/hubfs/Happy-work-team-cheering-and-celebrating-at-meeting-team-collaboration.jpg",
+  'https://i.insider.com/57e14d88b0ef97f0288b6a1d?width=1136&format=jpeg',
+  'https://images.inc.com/uploaded_files/image/1920x1080/getty_504987926_183876.jpg',
+  'https://www.betterup.com/hubfs/Happy-work-team-cheering-and-celebrating-at-meeting-team-collaboration.jpg'
 ];
 
 const About = () => {
@@ -28,34 +28,34 @@ const About = () => {
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center md:flex-row gap-8 m-4 p-4">
+    <div className="m-4 flex flex-col items-center justify-center gap-8 p-4 md:flex-row">
       {/* Animated Image Section */}
-      <div className="flex justify-center mb-4 md:mb-0 order-1 md:order-2">
-        <div className="relative aspect-video max-w-2xl w-full">
-          {" "}
+      <div className="order-1 mb-4 flex justify-center md:order-2 md:mb-0">
+        <div className="relative aspect-video w-full max-w-2xl">
+          {' '}
           {/* 16:9 Aspect Ratio */}
           <img
             src={images[currentImageIndex]}
             width={1280}
             height={720}
             alt="Consulting"
-            className={`object-cover w-full h-full rounded-lg transition-opacity duration-500 ${
-              fade ? "opacity-0" : "opacity-100"
+            className={`h-full w-full rounded-lg object-cover transition-opacity duration-500 ${
+              fade ? 'opacity-0' : 'opacity-100'
             }`}
           />
         </div>
       </div>
 
       {/* Text Section */}
-      <div className="flex flex-col justify-center text-center md:text-left order-2 md:order-1">
-        <h2 className="text-3xl text-blue-100 uppercase leading-snug tracking-wide font-bold">
+      <div className="order-2 flex flex-col justify-center text-center md:order-1 md:text-left">
+        <h2 className="text-3xl font-bold uppercase leading-snug tracking-wide text-blue-100">
           Who We Are?
         </h2>
         <p className="mt-4 max-w-[50ch]">
-          At Goat IT Consulting, we empower businesses to navigate the digital
-          landscape with innovative IT solutions tailored to your needs.
+          At Goat IT Consulting, we empower businesses to navigate the digital landscape with
+          innovative IT solutions tailored to your needs.
         </p>
-        <div className="flex justify-center md:justify-start mt-6">
+        <div className="mt-6 flex justify-center md:justify-start">
           <a
             href="/aboutPage"
             className="relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2"
