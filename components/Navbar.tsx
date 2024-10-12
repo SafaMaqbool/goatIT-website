@@ -18,16 +18,20 @@ const itemVariants: Variants = {
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
-  const servicesRef = useRef<HTMLDivElement>(null);
-
+  const menuRef = useRef<HTMLDivElement>(null);
+  
   const toggleMenu = () => setIsOpen(!isOpen);
   const toggleServicesDropdown = () => setIsServicesOpen(!isServicesOpen);
-  const handleLinkClick = () => setIsOpen(false);
+  const handleLinkClick = () => {
+    setIsOpen(false);
+    setIsServicesOpen(false); // Close dropdown when a link is clicked
+  };
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (servicesRef.current && !servicesRef.current.contains(event.target as Node)) {
-        setIsServicesOpen(false);
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+        setIsServicesOpen(false); // Close dropdown if clicking outside
       }
     };
 
@@ -35,11 +39,11 @@ const Navbar = () => {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  const renderLinks = (isMobile: boolean) =>
+  const renderLinks = (isMobile: boolean) => (
     ['Home', 'About', 'Services', 'Jobs', 'Testimonials', 'Contact'].map((item, index) => (
       <div key={index} className="relative">
         {item === 'Services' ? (
-          <div ref={servicesRef} className="relative">
+          <div className="relative">
             <button
               className="group relative transition hover:text-green-400"
               onClick={toggleServicesDropdown}
@@ -49,9 +53,7 @@ const Navbar = () => {
             </button>
             {isServicesOpen && (
               <motion.ul
-                className={`absolute left-0 mt-2 flex min-w-[200px] flex-col whitespace-nowrap rounded-lg bg-white/50 shadow-lg backdrop-blur-lg dark:border-gray-900 dark:bg-black/50 ${
-                  isMobile ? 'mt-12 p-6' : ''
-                }`}
+                className="flex flex-col min-w-[200px] rounded-lg bg-white/50 shadow-lg backdrop-blur-lg dark:border-gray-900 dark:bg-black/50 mt-2"
                 initial="closed"
                 animate={isServicesOpen ? 'open' : 'closed'}
                 variants={{
@@ -95,7 +97,8 @@ const Navbar = () => {
           </Link>
         )}
       </div>
-    ));
+    ))
+  );
 
   return (
     <>
@@ -112,7 +115,10 @@ const Navbar = () => {
       </nav>
 
       {isOpen && (
-        <div className="fixed inset-0 top-24 z-50 flex h-min flex-col items-center rounded-2xl border p-4 shadow-lg backdrop-blur-lg dark:border-gray-900 dark:bg-black/50 lg:hidden">
+        <div
+          ref={menuRef}
+          className="fixed inset-0 top-24 z-50 flex h-min flex-col items-center rounded-2xl border p-4 shadow-lg backdrop-blur-lg dark:border-gray-900 dark:bg-black/50 lg:hidden"
+        >
           <div className="flex w-full flex-col items-center space-y-4 py-4 text-lg">
             {renderLinks(true)}
           </div>
