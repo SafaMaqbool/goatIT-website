@@ -16,6 +16,14 @@ const itemVariants: Variants = {
   closed: { opacity: 0, y: 20, transition: { duration: 0.2 } }
 };
 
+// Testimonials auto scroll function
+const scrollToTestimonials = () => {
+  const testimonialsSection = document.getElementById('testimonials');
+  if (testimonialsSection) {
+    testimonialsSection.scrollIntoView({ behavior: 'smooth' }); // Smooth scroll
+  }
+};
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
@@ -61,7 +69,19 @@ const Navbar = () => {
   const renderLinks = (isMobile: boolean) =>
     ['Home', 'About', 'Services', 'Jobs', 'Testimonials', 'Contact'].map((item, index) => (
       <div key={index} className="relative">
-        {item === 'Services' ? (
+        {item === 'Testimonials' ? (
+          // Change the Testimonials link to a button that calls scrollToTestimonials
+          <button
+            onClick={() => {
+              scrollToTestimonials();
+              handleLinkClick(); // Close the menu after clicking
+            }}
+            className="group relative transition hover:text-green-400"
+          >
+            {item}
+            <span className="absolute bottom-0 left-1/2 h-0.5 w-0 bg-gradient-to-r from-green-400 to-blue-500 transition-all duration-300 group-hover:left-0 group-hover:w-full"></span>
+          </button>
+        ) : item === 'Services' ? (
           <div className="relative">
             <button className="group relative transition hover:text-green-400" onClick={toggleServicesDropdown}>
               {item}
