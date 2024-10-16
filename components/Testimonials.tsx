@@ -20,7 +20,7 @@ const Testimonials = () => {
       title: 'CEO @ Lunar Furniture',
       image: lunar,
       rating: 5 // Added rating for each testimonial
-    }
+    },
   ];
 
   // State to control the current testimonial being shown

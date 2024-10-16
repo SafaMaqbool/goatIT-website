@@ -2,6 +2,7 @@ import { ThemeProvider } from '@/app/provider';
 import Navbar from '@/components/Navbar'; // Adjust the path to where your Navbar is located
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
+import Footer from '@/components/Footer';
 import './globals.css';
 
 const geistSans = localFont({
@@ -31,6 +32,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
           <Navbar /> {/* Add Navbar here */}
           {children} {/* Render children below the Navbar */}
+          <Footer />
         </ThemeProvider>
       </body>
     </html>

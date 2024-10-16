@@ -31,7 +31,7 @@ const Hero = () => {
             Goat IT Consulting - Your Trusted Partner for Digital Transformation
           </p>
 
-          <a href="#contact-us">
+          <a href="/contact">
             {/* <TailwindCssButtons title="Contact Us Now" icon={<FaPhoneVolume />} position="right"/> */}
             <button className="relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
               {/* Adjusted the gradient color to match Goat IT theme */}

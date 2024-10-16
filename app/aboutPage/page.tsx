@@ -2,7 +2,7 @@ import { HiArrowRight } from 'react-icons/hi'; // Import the arrow icon
 
 const About = () => {
   return (
-    <div className="m-16 grid grid-cols-1 gap-8 p-4 md:grid-cols-2">
+    <div className="mt-20 m-16 grid grid-cols-1 gap-8 p-4 md:grid-cols-2">
       {/* Text Section */}
       <div className="flex flex-col justify-center">
         <h2 className="text-center text-3xl font-bold uppercase leading-snug tracking-wide text-blue-100">

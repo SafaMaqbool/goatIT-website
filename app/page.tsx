@@ -2,7 +2,8 @@ import Testimonials from '@/components/Testimonials';
 import About from '../components/About';
 import Hero from '../components/Hero';
 import Services from '../components/Services';
-import Footer from '@/components/Footer';
+
+import ContactSection from '@/components/ContactSection';
 
 export default function Home() {
   return (
@@ -12,7 +13,8 @@ export default function Home() {
         <About />
         <Services />
         <Testimonials/>
-        <Footer/>
+        <ContactSection/>
+        
       </div>
     </main>
   );
