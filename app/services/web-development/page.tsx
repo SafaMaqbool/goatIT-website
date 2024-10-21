@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaLaptopCode, FaMobileAlt, FaShoppingCart, FaSearch, FaServer, FaCogs } from 'react-icons/fa'; // Import icons
-
+import { FaPhoneVolume } from 'react-icons/fa6';
 const services = [
   {
     icon: <FaLaptopCode className="mb-4 text-6xl text-blue-400" />,
@@ -56,8 +56,8 @@ const Page = () => {
           className="w-full max-w-lg"
         />
       </div>
-      
-      <h1 className=''>What we Offer</h1>
+
+      <h1 className="">What we Offer</h1>
 
       {/* Services Array Style Grid Section */}
       <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
@@ -72,11 +72,15 @@ const Page = () => {
 
       {/* Call to Action Button */}
       <div className="mt-10 flex justify-center">
-        <a
-          href="/contact" // Update this link to your actual contact page
-          className="rounded-full bg-blue-600 px-8 py-3 text-xl font-semibold text-white transition duration-300 ease-in-out hover:bg-blue-700"
-        >
-          Get Started Today
+        <a href="/contact">
+          <button className="relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
+            {/* Adjusted the gradient color to match Goat IT theme */}
+            <span className="absolute inset-0 animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#41AD49_0%,#FDDC5B_50%,#41AD49_100%)]" />
+            <span className="relative inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-black px-6 py-3 text-sm font-medium text-white backdrop-blur-3xl">
+              Contact Us Now
+              <FaPhoneVolume className="ml-3" /> {/* Arrow icon */}
+            </span>
+          </button>
         </a>
       </div>
     </div>
