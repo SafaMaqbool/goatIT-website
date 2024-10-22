@@ -1,46 +1,46 @@
-import Image from 'next/image';
-import React from 'react';
-import OdooPartner from '@/public/official-odoo-partner.jpg';
+import { FaIndustry, FaTools, FaCode, FaChalkboardTeacher, FaHandshake } from 'react-icons/fa';
+import { AiFillSetting } from 'react-icons/ai';
 import { FaPhoneVolume } from 'react-icons/fa6';
+import React from 'react';
 
 const Page = () => {
   const services = [
     {
       title: 'Odoo Certified Partners',
       description: 'Expertise and official partnership with Odoo.',
-      imageSrc: OdooPartner,
-      altText: 'odoo partner image'
+      icon: <FaHandshake size={80} />,
+      altText: 'odoo certified partners icon'
     },
     {
       title: 'Industry-Specific Solutions',
       description:
         'Extensive experience across various industries including retail, manufacturing, healthcare, and more.',
-      imageSrc: OdooPartner,
-      altText: 'industry-specific solutions image'
+      icon: <FaIndustry size={80} />,
+      altText: 'industry-specific solutions icon'
     },
     {
       title: 'End-to-End Implementation',
       description: 'From consultation to post-launch support, we manage the entire process.',
-      imageSrc: OdooPartner,
-      altText: 'end-to-end implementation image'
+      icon: <FaTools size={80} />,
+      altText: 'end-to-end implementation icon'
     },
     {
       title: 'Custom Development & Integrations',
       description: 'We customize and integrate Odoo modules to fit your unique business requirements.',
-      imageSrc: OdooPartner,
-      altText: 'custom development and integrations image'
+      icon: <FaCode size={80} />,
+      altText: 'custom development and integrations icon'
     },
     {
       title: 'Ongoing Support & Training',
       description: 'Comprehensive user training and support even after implementation to ensure long-term success.',
-      imageSrc: OdooPartner,
-      altText: 'ongoing support and training image'
+      icon: <FaChalkboardTeacher size={80} />,
+      altText: 'ongoing support and training icon'
     },
     {
-      title: 'Odoo Certified Partners',
-      description: 'Expertise and official partnership with Odoo.',
-      imageSrc: OdooPartner,
-      altText: 'odoo certified partners image'
+      title: 'System Configuration & Optimization',
+      description: 'Optimize your Odoo system for maximum performance and scalability.',
+      icon: <AiFillSetting size={80} />,
+      altText: 'system configuration icon'
     }
   ];
 
@@ -76,9 +76,7 @@ const Page = () => {
       <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3">
         {services.map((service, index) => (
           <div key={index} className="flex h-full flex-col items-center rounded-lg bg-gray-800 p-6 text-center">
-            <div className="mb-4 flex h-40 w-40 items-center justify-center">
-              <Image src={service.imageSrc} alt={service.altText} className="h-full w-full object-contain" />
-            </div>
+            <div className="mb-4 flex h-40 w-40 items-center justify-center">{service.icon}</div>
             <h1 className="mt-4 text-2xl font-semibold">{service.title}</h1>
             <p className="mt-2 text-lg">{service.description}</p>
           </div>
@@ -93,7 +91,7 @@ const Page = () => {
             <span className="absolute inset-0 animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#41AD49_0%,#FDDC5B_50%,#41AD49_100%)]" />
             <span className="relative inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-black px-6 py-3 text-sm font-medium text-white backdrop-blur-3xl">
               Contact Us Now
-              <FaPhoneVolume className="ml-3" /> {/* Arrow icon */}
+              <FaPhoneVolume className="ml-3" />
             </span>
           </button>
         </a>

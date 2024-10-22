@@ -64,6 +64,7 @@ const Page: React.FC = () => {
   };
 
   // Function to handle form submission
+  // Function to handle form submission
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -92,10 +93,12 @@ const Page: React.FC = () => {
         alert('Message sent successfully!');
         setFormData({ name: '', email: '', subject: '', message: '' }); // Reset the form
       } else {
+        const errorMessage = await response.text(); // Get the error message from the response
+        console.error('Error response:', errorMessage); // Log error response
         alert('Error sending message. Please try again later.');
       }
     } catch (error) {
-      console.error('Error:', error);
+      console.error('Error during fetch:', error); // Log the error in console
       alert('An unexpected error occurred. Please try again later.');
     } finally {
       setLoading(false); // Reset loading state

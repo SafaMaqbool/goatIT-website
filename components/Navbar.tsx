@@ -118,7 +118,7 @@ const Navbar = () => {
           </div>
         ) : (
           <Link
-            href={item === 'Home' ? '/' : item === 'About' ? '/aboutPage' : `/${item.toLowerCase()}`}
+            href={item === 'Home' ? '/' : item === 'About' ? '/about' : `/${item.toLowerCase()}`}
             className="group relative transition hover:text-green-400"
             onClick={handleLinkClick}
           >
