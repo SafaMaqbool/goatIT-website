@@ -53,11 +53,13 @@ const Page = () => {
           Transform your business with a tailored Odoo ERP solution that meets your unique requirements and scales with
           your growth.
         </p>
-        <img
-          className="mt-4"
-          src="https://www.candidroot.com/web/image/6754-1aaf2e31/odoo-erp-implementation-services.jpg"
-          alt="odoo erp image"
-        />
+        <div className="overflow-hidden rounded-lg bg-white">
+          <img
+            className="mt-4 max-h-[30rem]"
+            src="https://i.pinimg.com/originals/68/35/c3/6835c30f379b5aeedf023ed82929e13f.png"
+            alt="odoo erp image"
+          />
+        </div>
       </div>
 
       <div className="m-4 flex flex-col p-4">

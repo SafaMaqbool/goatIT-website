@@ -23,8 +23,6 @@ export function DesktopMenu({
   return (
     <NavigationMenu className="hidden md:block">
       <NavigationMenuList>
-        {/*  */}
-
         {links.map((link) => (
           <NavigationMenuItem key={link.label}>
             {link.dropdown ? (
