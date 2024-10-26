@@ -1,9 +1,9 @@
-import Testimonials from '@/components/Testimonials';
 import About from '../components/About';
 import Hero from '../components/Hero';
 import Services from '../components/Services';
 
 import ContactSection from '@/components/ContactSection';
+import SmoothTestimonialsSlider from '@/components/TestimonialSlider';
 
 export default function Home() {
   return (
@@ -12,7 +12,8 @@ export default function Home() {
         <Hero />
         <About />
         <Services />
-        <Testimonials />
+        {/* <Testimonials /> */}
+        <SmoothTestimonialsSlider />
         <ContactSection />
       </div>
     </section>
