@@ -1,4 +1,4 @@
-import ContactUsButton from '@/components/ui/ContactUsButton';
+import AnimatedButton from '@/components/ui/AnimatedButton';
 
 const page = () => {
   return (
@@ -8,7 +8,7 @@ const page = () => {
         We are always on the lookout for amazing talent. When we have openings, they will be posted here. Stay tuned and
         check back soon!
       </p>
-      <ContactUsButton />
+      <AnimatedButton icon="phone" label="Contact US Now" link="/contact" />
     </div>
   );
 };

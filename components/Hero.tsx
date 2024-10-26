@@ -2,7 +2,7 @@ import { Spotlight } from '@/components/ui/Spotlight';
 import { TextGenerateEffect } from '@/components/ui/TextGenerateEffect';
 import { Suspense } from 'react';
 import Balancer from 'react-wrap-balancer';
-import ContactUsButton from './ui/ContactUsButton';
+import AnimatedButton from './ui/AnimatedButton';
 
 const Hero = () => {
   return (
@@ -46,7 +46,7 @@ const Hero = () => {
             <Balancer>Goat IT Consulting - Your Trusted Partner for Digital Transformation</Balancer>
           </h2>
 
-          <ContactUsButton className="mt-8" />
+          <AnimatedButton className="mt-8" icon="phone" label="Contact US Now" link="/contact" />
         </div>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import ContactUsButton from '@/components/ui/ContactUsButton';
+import AnimatedButton from '@/components/ui/AnimatedButton';
 import { FaCogs, FaLaptopCode, FaMobileAlt, FaSearch, FaServer, FaShoppingCart } from 'react-icons/fa'; // Import icons
 const services = [
   {
@@ -71,7 +71,7 @@ const Page = () => {
 
       {/* Call to Action Button */}
       <div className="mt-10 flex justify-center">
-        <ContactUsButton />
+        <AnimatedButton icon="phone" label="Contact US Now" link="/contact" />
       </div>
     </div>
   );

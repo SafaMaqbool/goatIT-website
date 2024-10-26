@@ -1,4 +1,4 @@
-import ContactUsButton from '@/components/ui/ContactUsButton';
+import AnimatedButton from '@/components/ui/AnimatedButton';
 import { AiFillSetting } from 'react-icons/ai';
 import { FaChalkboardTeacher, FaCode, FaHandshake, FaIndustry, FaTools } from 'react-icons/fa';
 
@@ -84,7 +84,7 @@ const Page = () => {
 
       {/* Centered Contact Us Button */}
       <div className="mt-10 flex justify-center">
-        <ContactUsButton />
+        <AnimatedButton icon="phone" label="Contact US Now" link="/contact" />
       </div>
     </div>
   );

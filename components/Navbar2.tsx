@@ -14,6 +14,7 @@ import {
 } from '@/components/ui/navigation-menu';
 
 import { cn } from '@/lib/utils';
+import { usePathname } from 'next/navigation';
 
 const components: { title: string; href: string }[] = [
   {
@@ -27,6 +28,8 @@ const components: { title: string; href: string }[] = [
 ];
 
 export function Navbar2() {
+  const path = usePathname();
+
   return (
     <NavigationMenu className="hidden md:block">
       <NavigationMenuList>
@@ -83,7 +86,8 @@ export function Navbar2() {
 
         {/*  */}
         <NavigationMenuItem>
-          <Link href="/testimonials" legacyBehavior passHref>
+          {/* if the current path is home then "#testimonials" other wise "/#testimonials" */}
+          <Link href={path === '/' ? '#testimonials' : '/#testimonials'} legacyBehavior passHref>
             <NavigationMenuLink
               className={cn(navigationMenuTriggerStyle(), 'group/3 relative isolate transition hover:text-green-400')}
             >

@@ -1,8 +1,8 @@
 'use client';
-import React, { useState, useEffect } from 'react';
 import edolutions from '@/public/edolutions logo.png';
 import lunar from '@/public/lunar logo.jpg';
 import Image from 'next/image';
+import { useEffect, useState } from 'react';
 import { FaStar } from 'react-icons/fa'; // Importing star icon from react-icons
 
 const Testimonials = () => {
@@ -20,7 +20,7 @@ const Testimonials = () => {
       title: 'CEO @ Lunar Furniture',
       image: lunar,
       rating: 5 // Added rating for each testimonial
-    },
+    }
   ];
 
   // State to control the current testimonial being shown
@@ -36,7 +36,7 @@ const Testimonials = () => {
   }, [testimonials.length]);
 
   return (
-    <section id="testimonials" className="bg-gray-900 py-16">
+    <section id="testimonials" className="scroll-m-36 bg-gray-900 py-16">
       {' '}
       {/* Dark background for the section */}
       <div className="container">
