@@ -74,35 +74,6 @@ const Page: React.FC = () => {
       setErrors(validationErrors);
       return; // Stop form submission if there are errors
     }
-
-    // Set loading state
-    setLoading(true);
-
-    // Send form data to the API
-    try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(formData)
-      });
-
-      // Check the response status
-      if (response.ok) {
-        alert('Message sent successfully!');
-        setFormData({ name: '', email: '', subject: '', message: '' }); // Reset the form
-      } else {
-        const errorMessage = await response.text(); // Get the error message from the response
-        console.error('Error response:', errorMessage); // Log error response
-        alert('Error sending message. Please try again later.');
-      }
-    } catch (error) {
-      console.error('Error during fetch:', error); // Log the error in console
-      alert('An unexpected error occurred. Please try again later.');
-    } finally {
-      setLoading(false); // Reset loading state
-    }
   };
 
   return (
