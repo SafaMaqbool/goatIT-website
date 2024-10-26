@@ -1,5 +1,6 @@
 'use client';
 
+import { getNavigationLinks } from '@/lib/constants';
 import { useClickAway } from '@uidotdev/usehooks';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -7,18 +8,6 @@ import { useState } from 'react';
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
 import { DesktopMenu } from './DesktopMenu';
 import GoatLogo from './icons/brand';
-
-interface DropdownLink {
-  label: string;
-  path: string;
-}
-
-interface LinkItem {
-  label: string;
-  path: string;
-  dropdown?: boolean;
-  dropdownLinks?: DropdownLink[];
-}
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -30,23 +19,7 @@ const Navbar = () => {
   });
 
   const currentPath = usePathname();
-
-  const links: LinkItem[] = [
-    { label: 'Home', path: '/' },
-    { label: 'About', path: '/about' },
-    {
-      label: 'Services',
-      path: '/services',
-      dropdown: true,
-      dropdownLinks: [
-        { label: 'Web Development', path: '/web-development' },
-        { label: 'ERP Development', path: '/erp-development' }
-      ]
-    },
-    { label: 'Jobs', path: '/jobs' },
-    { label: 'Testimonials', path: currentPath === '/' ? '#testimonials' : '/#testimonials' },
-    { label: 'Contact', path: '/contact' }
-  ];
+  const links = getNavigationLinks({ currentPath });
 
   return (
     <>
@@ -65,7 +38,7 @@ const Navbar = () => {
 
       {isOpen && (
         <div
-          ref={ref}
+          ref={ref as any}
           className="fixed inset-0 top-24 z-50 flex h-min flex-col items-center rounded-2xl border px-4 py-16 shadow-lg backdrop-blur-lg dark:border-gray-900 dark:bg-black/50 lg:hidden"
         >
           <div className="flex w-full flex-col items-start space-y-7 py-4 text-xl">
