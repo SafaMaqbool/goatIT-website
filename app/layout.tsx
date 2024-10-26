@@ -1,8 +1,8 @@
 import { ThemeProvider } from '@/app/provider';
+import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar'; // Adjust the path to where your Navbar is located
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
-import Footer from '@/components/Footer';
 import './globals.css';
 
 const geistSans = localFont({
@@ -27,11 +27,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
           <Navbar /> {/* Add Navbar here */}
-          {children} {/* Render children below the Navbar */}
+          <main>
+            {children} {/* Render children below the Navbar */}
+          </main>
           <Footer />
         </ThemeProvider>
       </body>

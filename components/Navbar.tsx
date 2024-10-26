@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
 import GoatLogo from './icons/brand';
+import { Navbar2 } from './Navbar2';
 
 // Variants for dropdown items
 const itemVariants: Variants = {
@@ -131,13 +132,14 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="fixed inset-x-0 top-5 z-50 mx-auto h-16 max-w-3xl rounded-full border border-gray-200 bg-white px-4 py-0.5 shadow-lg backdrop-blur-lg dark:border-gray-900 dark:bg-black/50">
+      <nav className="fixed inset-x-0 top-5 z-50 mx-8 h-16 max-w-3xl rounded-full border border-gray-200 bg-white px-4 py-0.5 shadow-lg backdrop-blur-lg dark:border-gray-900 dark:bg-black/50 md:mx-auto">
         <div className="flex h-full w-full items-center justify-between text-black dark:text-white sm:justify-between lg:justify-evenly">
           <Link href="/" className="flex items-center">
             <GoatLogo className="h-7" />
           </Link>
-          <div className="hidden items-center space-x-6 lg:flex">{renderLinks(false)}</div>
-          <div className="cursor-pointer lg:hidden" onClick={toggleMenu}>
+
+          <Navbar2 />
+          <div className="cursor-pointer md:hidden" onClick={toggleMenu}>
             {isOpen ? <AiOutlineClose size={24} /> : <AiOutlineMenu size={24} />}
           </div>
         </div>

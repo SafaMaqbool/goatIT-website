@@ -1,9 +1,8 @@
 'use client';
 
+import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { HiArrowRight } from 'react-icons/hi';
-import { motion, useAnimation } from 'framer-motion';
-import { useInView } from 'react-intersection-observer'; // For scroll detection
 
 const images = [
   'https://i.insider.com/57e14d88b0ef97f0288b6a1d?width=1136&format=jpeg',
@@ -14,18 +13,6 @@ const images = [
 const About = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [fade, setFade] = useState(false);
-
-  const controlsText = useAnimation(); // Control animations for text
-  const controlsImage = useAnimation(); // Control animations for image
-  const { ref, inView } = useInView({ threshold: 0.1, triggerOnce: true }); // Detect when component is in view
-
-  // Trigger animations when section comes into view
-  useEffect(() => {
-    if (inView) {
-      controlsText.start({ x: 0, opacity: 1, transition: { duration: 1 } });
-      controlsImage.start({ x: 0, opacity: 1, transition: { duration: 1 } });
-    }
-  }, [controlsText, controlsImage, inView]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -42,11 +29,14 @@ const About = () => {
   }, []);
 
   return (
-    <div ref={ref} className="m-4 flex flex-col items-center justify-center gap-8 p-4 md:flex-row">
+    <div className="m-4 flex flex-col items-center justify-center gap-8 p-4 md:flex-row">
       {/* Animated Image Section */}
       <motion.div
-        initial={{ x: 50, opacity: 0 }} // Initial state of the image
-        animate={controlsImage} // Control the animation
+        variants={{ hidden: { x: 50, opacity: 0 }, visible: { x: 0, opacity: 1 } }}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: '0px 0px -300px 0px' }}
+        transition={{ type: 'spring', duration: 0.5 }}
         className="order-1 mb-4 flex justify-center md:order-2 md:mb-0"
       >
         <div className="relative aspect-video w-full max-w-2xl">
@@ -62,8 +52,11 @@ const About = () => {
 
       {/* Text Section */}
       <motion.div
-        initial={{ x: -50, opacity: 0 }} // Initial state of the text
-        animate={controlsText} // Control the animation
+        variants={{ hidden: { x: -50, opacity: 0 }, visible: { x: 0, opacity: 1 } }}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: '0px 0px -300px 0px' }}
+        transition={{ type: 'spring', duration: 0.5 }}
         className="order-2 flex flex-col justify-center text-center md:order-1 md:text-left"
       >
         <h2 className="text-3xl font-bold uppercase leading-snug tracking-wide text-blue-100">Who We Are?</h2>
