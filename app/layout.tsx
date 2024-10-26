@@ -1,4 +1,3 @@
-import { ThemeProvider } from '@/app/provider';
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar'; // Adjust the path to where your Navbar is located
 import type { Metadata } from 'next';
@@ -29,13 +28,9 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
-          <Navbar /> {/* Add Navbar here */}
-          <main>
-            {children} {/* Render children below the Navbar */}
-          </main>
-          <Footer />
-        </ThemeProvider>
+        <Navbar />
+        <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );
