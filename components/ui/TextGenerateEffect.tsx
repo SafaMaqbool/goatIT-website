@@ -37,17 +37,14 @@ export const TextGenerateEffect = ({
   return (
     <motion.div
       ref={scope}
-      className={cn(
-        'my-4 text-center text-3xl font-bold leading-snug tracking-wide text-black dark:text-white',
-        className
-      )}
+      className={cn('my-4 text-center text-3xl font-bold leading-snug tracking-wide text-white', className)}
     >
       {wordsArray.map((word, idx) => (
         <motion.span
           key={word + idx}
           className={cn(
             'opacity-0', // All words start with opacity 0
-            idx > coloredIndex ? 'text-[#41AD49]' : 'text-black dark:text-blue-100'
+            idx > coloredIndex ? 'text-[#41AD49]' : 'text-blue-100'
           )}
           style={{
             filter: filter ? 'blur(10px)' : 'none'

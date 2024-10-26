@@ -23,8 +23,8 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="fixed inset-x-0 top-5 z-50 mx-4 h-16 max-w-3xl rounded-full border border-gray-200 bg-white px-4 py-0.5 shadow-lg backdrop-blur-lg dark:border-gray-900 dark:bg-black/50 md:mx-auto">
-        <div className="flex h-full w-full items-center justify-between text-black dark:text-white sm:justify-between lg:justify-evenly">
+      <nav className="fixed inset-x-0 top-5 z-50 mx-4 h-16 max-w-3xl rounded-full border border-gray-900 bg-black/50 bg-white px-4 py-0.5 shadow-lg backdrop-blur-lg md:mx-auto">
+        <div className="flex h-full w-full items-center justify-between text-white sm:justify-between lg:justify-evenly">
           <Link href="/" className="flex items-center">
             <GoatLogo className="h-7" />
           </Link>
@@ -39,7 +39,7 @@ const Navbar = () => {
       {isOpen && (
         <div
           ref={ref as any}
-          className="fixed inset-0 top-24 z-50 flex h-min flex-col items-center rounded-2xl border px-4 py-16 shadow-lg backdrop-blur-lg dark:border-gray-900 dark:bg-black/50 lg:hidden"
+          className="fixed inset-0 top-24 z-50 flex h-min flex-col items-center rounded-2xl border border-gray-900 bg-black/50 px-4 py-16 shadow-lg backdrop-blur-lg lg:hidden"
         >
           <div className="flex w-full flex-col items-start space-y-7 py-4 text-xl">
             {links.map(({ label, path, dropdown, dropdownLinks }) => (

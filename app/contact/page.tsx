@@ -78,9 +78,7 @@ const Page: React.FC = () => {
 
   return (
     <div className="mt-16 p-16">
-      <h2 className="text-center text-2xl font-bold uppercase leading-tight tracking-wider text-black dark:text-white">
-        Contact Us
-      </h2>
+      <h2 className="text-center text-2xl font-bold uppercase leading-tight tracking-wider text-white">Contact Us</h2>
       <h1 className="text-center text-5xl font-semibold tracking-tight">Get in touch!</h1>
       <p className="mt-1 text-center text-xl tracking-wide">
         Continue your journey to explore, learn, and succeed with GOAT
