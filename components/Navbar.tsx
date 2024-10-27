@@ -23,7 +23,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="fixed inset-x-0 top-5 z-50 mx-4 h-16 max-w-3xl rounded-full border border-gray-900 bg-black/50 bg-white px-4 py-0.5 shadow-lg backdrop-blur-lg md:mx-auto">
+      <nav className="fixed inset-x-0 top-5 z-50 mx-4 h-16 max-w-3xl rounded-full border border-black/60 bg-black/50 px-4 py-0.5 shadow-lg backdrop-blur-lg md:mx-auto">
         <div className="flex h-full w-full items-center justify-between text-white sm:justify-between lg:justify-evenly">
           <Link href="/" className="flex items-center">
             <GoatLogo className="h-7" />
