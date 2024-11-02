@@ -1,7 +1,6 @@
 'use client';
 import React, { useState } from 'react';
 
-// Define the type for the form data
 interface FormData {
   name: string;
   email: string;
@@ -10,7 +9,6 @@ interface FormData {
 }
 
 const Page: React.FC = () => {
-  // State to hold form data
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
@@ -18,44 +16,33 @@ const Page: React.FC = () => {
     message: ''
   });
 
-  // State to hold validation messages
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
-
-  // State to indicate loading status
   const [loading, setLoading] = useState<boolean>(false);
 
-  // Function to handle input changes
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
-
-    // Clear errors for the field being updated
     setErrors({ ...errors, [name]: '' });
   };
 
-  // Function to validate form data
   const validate = () => {
     const newErrors: { [key: string]: string } = {};
     const { name, email, subject, message } = formData;
 
-    // Name validation
-    const nameRegex = /^[A-Za-z\s]+$/; // Allow only letters and spaces
+    const nameRegex = /^[A-Za-z\s]+$/;
     if (!name.trim() || name.length < 3 || !nameRegex.test(name)) {
       newErrors.name = 'Name must be at least 3 characters long and contain only letters.';
     }
 
-    // Email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email.trim())) {
       newErrors.email = 'Please enter a valid email address.';
     }
 
-    // Subject validation
     if (!subject.trim() || subject.length < 5) {
       newErrors.subject = 'Subject must be at least 5 characters long.';
     }
 
-    // Message validation
     if (!message.trim() || message.length < 10) {
       newErrors.message = 'Message must be at least 10 characters long.';
     }
@@ -63,31 +50,38 @@ const Page: React.FC = () => {
     return newErrors;
   };
 
-  // Function to handle form submission
-  // Function to handle form submission
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    // Validate form data
     const validationErrors = validate();
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
-      return; // Stop form submission if there are errors
+      return;
     }
+
+    setLoading(true);
+    setTimeout(() => {
+      alert('Message sent successfully!');
+      setLoading(false);
+      setFormData({ name: '', email: '', subject: '', message: '' });
+    }, 2000);
   };
 
   return (
-    <div className="mt-16 p-16">
-      <h2 className="text-center text-2xl font-bold uppercase leading-tight tracking-wider text-white">Contact Us</h2>
-      <h1 className="text-center text-5xl font-semibold tracking-tight">Get in touch!</h1>
-      <p className="mt-1 text-center text-xl tracking-wide">
-        Continue your journey to explore, learn, and succeed with GOAT
-      </p>
+    <div className="flex min-h-screen flex-col items-center bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 p-6 lg:p-16">
+      <div className="text-center">
+        <h2 className="mb-2 mt-8 text-4xl font-bold text-blue-400">Contact Us</h2>
+        <h1 className="mb-4 text-5xl font-extrabold text-white">We'd love to hear from you!</h1>
+        <p className="mb-8 text-xl text-gray-400">
+          Continue your journey to explore, learn, and succeed with <span className="text-blue-400">GOAT</span>
+        </p>
+      </div>
 
-      {/* Contact Form Start */}
-      <form className="mx-auto mt-10 max-w-lg rounded-lg bg-gray-800 p-6 shadow-lg" onSubmit={handleSubmit}>
-        <div className="mb-4">
-          <label htmlFor="name" className="block text-sm font-semibold text-white">
+      <form
+        className="w-full max-w-lg transform rounded-xl bg-gray-800 bg-opacity-90 p-8 shadow-2xl transition-transform"
+        onSubmit={handleSubmit}
+      >
+        <div className="mb-6">
+          <label htmlFor="name" className="block text-sm font-semibold text-blue-300">
             Name
           </label>
           <input
@@ -97,12 +91,14 @@ const Page: React.FC = () => {
             value={formData.name}
             onChange={handleChange}
             required
-            className="mt-1 block w-full rounded border border-gray-600 bg-gray-700 p-2 text-white"
+            className="mt-1 w-full rounded-lg bg-gray-700 p-3 text-white placeholder-gray-500 transition duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="Enter your name"
           />
-          {errors.name && <p className="mt-1 text-red-400">{errors.name}</p>}
+          {errors.name && <p className="mt-1 text-red-500">{errors.name}</p>}
         </div>
-        <div className="mb-4">
-          <label htmlFor="email" className="block text-sm font-semibold text-white">
+
+        <div className="mb-6">
+          <label htmlFor="email" className="block text-sm font-semibold text-blue-300">
             Email
           </label>
           <input
@@ -112,12 +108,14 @@ const Page: React.FC = () => {
             value={formData.email}
             onChange={handleChange}
             required
-            className="mt-1 block w-full rounded border border-gray-600 bg-gray-700 p-2 text-white"
+            className="mt-1 w-full rounded-lg bg-gray-700 p-3 text-white placeholder-gray-500 transition duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="Enter your email"
           />
-          {errors.email && <p className="mt-1 text-red-400">{errors.email}</p>}
+          {errors.email && <p className="mt-1 text-red-500">{errors.email}</p>}
         </div>
-        <div className="mb-4">
-          <label htmlFor="subject" className="block text-sm font-semibold text-white">
+
+        <div className="mb-6">
+          <label htmlFor="subject" className="block text-sm font-semibold text-blue-300">
             Subject
           </label>
           <input
@@ -127,12 +125,14 @@ const Page: React.FC = () => {
             value={formData.subject}
             onChange={handleChange}
             required
-            className="mt-1 block w-full rounded border border-gray-600 bg-gray-700 p-2 text-white"
+            className="mt-1 w-full rounded-lg bg-gray-700 p-3 text-white placeholder-gray-500 transition duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="Enter the subject"
           />
-          {errors.subject && <p className="mt-1 text-red-400">{errors.subject}</p>}
+          {errors.subject && <p className="mt-1 text-red-500">{errors.subject}</p>}
         </div>
-        <div className="mb-4">
-          <label htmlFor="message" className="block text-sm font-semibold text-white">
+
+        <div className="mb-6">
+          <label htmlFor="message" className="block text-sm font-semibold text-blue-300">
             Message
           </label>
           <textarea
@@ -141,19 +141,22 @@ const Page: React.FC = () => {
             value={formData.message}
             onChange={handleChange}
             required
-            className="mt-1 block w-full rounded border border-gray-600 bg-gray-700 p-2 text-white"
+            className="mt-1 w-full rounded-lg bg-gray-700 p-3 text-white placeholder-gray-500 transition duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500"
             rows={4}
+            placeholder="Enter your message"
           ></textarea>
-          {errors.message && <p className="mt-1 text-red-400">{errors.message}</p>}
+          {errors.message && <p className="mt-1 text-red-500">{errors.message}</p>}
         </div>
+
         <button
           type="submit"
-          disabled={loading} // Disable the button while loading
-          className={`flex w-full items-center justify-center rounded py-2 text-white transition duration-200 ${loading ? 'bg-gray-600' : 'bg-blue-600 hover:bg-blue-500'}`}
+          disabled={loading}
+          className={`flex w-full items-center justify-center rounded-lg py-3 text-lg font-semibold text-white transition duration-300 ${
+            loading ? 'cursor-not-allowed bg-blue-700' : 'bg-blue-600 hover:bg-blue-500'
+          }`}
         >
           {loading ? (
             <>
-              {/* Updated Loader Icon */}
               <svg
                 className="mr-2 h-5 w-5 animate-spin text-white"
                 xmlns="http://www.w3.org/2000/svg"
@@ -171,7 +174,6 @@ const Page: React.FC = () => {
           )}
         </button>
       </form>
-      {/* Contact Form End */}
     </div>
   );
 };
