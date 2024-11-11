@@ -56,7 +56,7 @@ const Page = () => {
         />
       </div>
 
-      <h1 className="">What we Offer</h1>
+      <h1 className="text-center text-3xl font-semibold mt-8 uppercase">What we Offer</h1>
 
       {/* Services Array Style Grid Section */}
       <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">

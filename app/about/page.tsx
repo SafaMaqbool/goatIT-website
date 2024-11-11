@@ -3,7 +3,8 @@ const About = () => {
     {
       title: 'Who We Are',
       text: 'At Goat IT Consulting, we empower businesses to navigate the digital landscape with innovative IT solutions tailored to your needs. Our mission is to drive growth and efficiency through strategic technology consulting, ensuring you stay ahead in a rapidly changing market.',
-      imageUrl: 'https://static2.bigstockphoto.com/1/3/2/large1500/231257971.jpg',
+      imageUrl:
+        'https://media.istockphoto.com/id/1373240838/photo/positive-team-motivation.jpg?s=612x612&w=0&k=20&c=zyLDqvjxYDV0nhKf7laXUcOer5ZW-FH864I9k6LXgjI=',
       alt: 'People Working'
     },
     {
@@ -25,7 +26,7 @@ const About = () => {
           <img
             src={sections[0].imageUrl}
             alt={sections[0].alt}
-            className="h-full w-full rounded-lg object-cover transition-all duration-500 ease-in-out hover:scale-105"
+            className="h-full w-full rounded-xl object-cover transition-all duration-500 ease-in-out hover:scale-105"
           />
         </div>
         <p className="mt-4 max-w-2xl text-lg text-gray-300">{sections[0].text}</p>

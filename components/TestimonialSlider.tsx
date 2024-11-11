@@ -8,6 +8,7 @@ import { Button } from './ui/Button';
 import edolutions from '@/public/edolutions logo.png';
 import lunar from '@/public/lunar logo.jpg';
 
+
 type Testimonial = {
   id: number;
   company: string;
@@ -76,7 +77,9 @@ export default function SmoothTestimonialsSlider({ autoSlideInterval = 5000 }: {
       className="relative mx-auto w-full max-w-7xl overflow-hidden rounded-2xl bg-gradient-to-br from-primary/5 to-secondary/5 p-8 shadow-lg"
     >
       <div className="absolute inset-0 bg-grid-primary/5 [mask-image:radial-gradient(white,transparent_70%)]" />
-
+      <h2 className="font-bold m-4 text-center text-4xl uppercase leading-snug tracking-wide text-blue-100">
+        What Our Clients Say
+      </h2>
       <div className="relative z-10 flex h-[400px] flex-col items-center justify-center">
         <AnimatePresence initial={false} custom={direction} mode="wait">
           <motion.div

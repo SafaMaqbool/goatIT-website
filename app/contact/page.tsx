@@ -64,15 +64,19 @@ const Page: React.FC = () => {
       setLoading(false);
       setFormData({ name: '', email: '', subject: '', message: '' });
     }, 2000);
+
   };
 
   return (
     <div className="flex min-h-screen flex-col items-center bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 p-6 lg:p-16">
       <div className="text-center">
-        <h2 className="mb-2 mt-8 text-4xl font-bold text-blue-400">Contact Us</h2>
-        <h1 className="mb-4 text-5xl font-extrabold text-white">We'd love to hear from you!</h1>
+        <h2 className="mb-2 mt-8 text-4xl font-bold uppercase leading-snug tracking-wide text-blue-100">Contact Us</h2>
+        <h1 className="mb-4 text-3xl font-bold uppercase leading-snug tracking-wide text-blue-100">
+          We'd love to hear from you!
+        </h1>
         <p className="mb-8 text-xl text-gray-400">
-          Continue your journey to explore, learn, and succeed with <span className="text-blue-400">GOAT</span>
+          Continue your journey to explore, learn, and succeed with{' '}
+          <span className="font-medium text-green-400">GOAT</span>
         </p>
       </div>
 
@@ -81,7 +85,7 @@ const Page: React.FC = () => {
         onSubmit={handleSubmit}
       >
         <div className="mb-6">
-          <label htmlFor="name" className="block text-sm font-semibold text-blue-300">
+          <label htmlFor="name" className="block text-sm font-semibold text-green-400">
             Name
           </label>
           <input
@@ -98,7 +102,7 @@ const Page: React.FC = () => {
         </div>
 
         <div className="mb-6">
-          <label htmlFor="email" className="block text-sm font-semibold text-blue-300">
+          <label htmlFor="email" className="block text-sm font-semibold text-green-400">
             Email
           </label>
           <input
@@ -115,7 +119,7 @@ const Page: React.FC = () => {
         </div>
 
         <div className="mb-6">
-          <label htmlFor="subject" className="block text-sm font-semibold text-blue-300">
+          <label htmlFor="subject" className="block text-sm font-semibold text-green-400">
             Subject
           </label>
           <input
@@ -132,7 +136,7 @@ const Page: React.FC = () => {
         </div>
 
         <div className="mb-6">
-          <label htmlFor="message" className="block text-sm font-semibold text-blue-300">
+          <label htmlFor="message" className="block text-sm font-semibold text-green-400">
             Message
           </label>
           <textarea
@@ -152,7 +156,7 @@ const Page: React.FC = () => {
           type="submit"
           disabled={loading}
           className={`flex w-full items-center justify-center rounded-lg py-3 text-lg font-semibold text-white transition duration-300 ${
-            loading ? 'cursor-not-allowed bg-blue-700' : 'bg-blue-600 hover:bg-blue-500'
+            loading ? 'cursor-not-allowed bg-green-700' : 'bg-green-600 hover:bg-green-500'
           }`}
         >
           {loading ? (
