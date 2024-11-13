@@ -1,5 +1,6 @@
 'use client';
 import React, { useState } from 'react';
+import emailjs from 'emailjs-com';
 
 interface FormData {
   name: string;
@@ -59,13 +60,48 @@ const Page: React.FC = () => {
     }
 
     setLoading(true);
-    setTimeout(() => {
-      alert('Message sent successfully!');
-      setLoading(false);
-      setFormData({ name: '', email: '', subject: '', message: '' });
-    }, 2000);
 
+    try {
+      // Sending the message to the site owner or admin
+      await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAIL_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAIL_TEMPLATE_ID!,
+        {
+          user_name: formData.name,
+          user_email: formData.email,
+          user_subject: formData.subject,
+          user_message: formData.message
+        },
+        process.env.NEXT_PUBLIC_EMAIL_USER_ID
+      );
+
+      // Now send a confirmation email to the user (to_email is dynamic here)
+      await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAIL_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAIL_CONFIRMATION_TEMPLATE_ID!, // Your confirmation template
+        {
+          user_name: formData.name,
+          to_email: formData.email, // Passing the dynamic email address to the template
+          confirmation_message: 'Thank you for contacting us! We will get back to you soon.'
+        },
+        process.env.NEXT_PUBLIC_EMAIL_USER_ID
+      );
+
+      alert('Message sent successfully! A confirmation email has been sent to you.');
+      setFormData({ name: '', email: '', subject: '', message: '' });
+    } catch (error) {
+      alert('Failed to send message, please try again.');
+      console.error('EmailJS error:', error);
+    } finally {
+      setLoading(false);
+    }
   };
+  console.log({
+    user_name: formData.name,
+    to_email: formData.email,
+    confirmation_message: 'Thank you for contacting us! We will get back to you soon.'
+  });
+
 
   return (
     <div className="flex min-h-screen flex-col items-center bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 p-6 lg:p-16">
@@ -84,6 +120,8 @@ const Page: React.FC = () => {
         className="w-full max-w-lg transform rounded-xl bg-gray-800 bg-opacity-90 p-8 shadow-2xl transition-transform"
         onSubmit={handleSubmit}
       >
+        {/* Form Fields */}
+        {/* Name Input */}
         <div className="mb-6">
           <label htmlFor="name" className="block text-sm font-semibold text-green-400">
             Name
@@ -101,6 +139,7 @@ const Page: React.FC = () => {
           {errors.name && <p className="mt-1 text-red-500">{errors.name}</p>}
         </div>
 
+        {/* Email Input */}
         <div className="mb-6">
           <label htmlFor="email" className="block text-sm font-semibold text-green-400">
             Email
@@ -118,6 +157,7 @@ const Page: React.FC = () => {
           {errors.email && <p className="mt-1 text-red-500">{errors.email}</p>}
         </div>
 
+        {/* Subject Input */}
         <div className="mb-6">
           <label htmlFor="subject" className="block text-sm font-semibold text-green-400">
             Subject
@@ -135,6 +175,7 @@ const Page: React.FC = () => {
           {errors.subject && <p className="mt-1 text-red-500">{errors.subject}</p>}
         </div>
 
+        {/* Message Input */}
         <div className="mb-6">
           <label htmlFor="message" className="block text-sm font-semibold text-green-400">
             Message
@@ -152,6 +193,7 @@ const Page: React.FC = () => {
           {errors.message && <p className="mt-1 text-red-500">{errors.message}</p>}
         </div>
 
+        {/* Submit Button */}
         <button
           type="submit"
           disabled={loading}
