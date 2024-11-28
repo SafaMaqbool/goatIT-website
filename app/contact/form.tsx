@@ -108,7 +108,7 @@ const ContactForm = () => {
       <div className="text-center">
         <h2 className="mb-2 mt-8 text-4xl font-bold uppercase leading-snug tracking-wide text-blue-100">Contact Us</h2>
         <h1 className="mb-4 text-3xl font-bold uppercase leading-snug tracking-wide text-blue-100">
-          We'd love to hear from you!
+          We&#39;d love to hear from you!
         </h1>
         <p className="mb-8 text-xl text-gray-400">
           Continue your journey to explore, learn, and succeed with{' '}

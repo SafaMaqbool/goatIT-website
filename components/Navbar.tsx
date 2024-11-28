@@ -38,7 +38,7 @@ const Navbar = () => {
 
       {isOpen && (
         <div
-          ref={ref as any}
+          ref={ref as React.RefObject<HTMLDivElement>}
           className="fixed inset-0 top-24 z-50 flex h-min flex-col items-center rounded-2xl border border-gray-900 bg-black/50 px-4 py-16 shadow-lg backdrop-blur-lg lg:hidden"
         >
           <div className="flex w-full flex-col items-start space-y-7 py-4 text-xl">

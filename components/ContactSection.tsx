@@ -6,7 +6,7 @@ const ContactSection = () => {
       {/* Left Side - Revolutionize Your Business Text */}
       <div className="text-left">
         <p className="mb-8 max-w-[50ch] text-2xl font-bold uppercase text-white">
-          Are you ready to take your business to the next level? Let's collaborate and turn your vision into reality!
+          Are you ready to take your business to the next level? Let&#39;s collaborate and turn your vision into reality!
         </p>
       </div>
 
