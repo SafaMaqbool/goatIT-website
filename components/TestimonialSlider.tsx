@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { Button } from './ui/Button';
+import Image, { StaticImageData } from 'next/image'; 
 
 import edolutions from '@/public/edolutions logo.png';
 import lunar from '@/public/lunar logo.jpg';
@@ -12,7 +13,7 @@ import lunar from '@/public/lunar logo.jpg';
 type Testimonial = {
   id: number;
   company: string;
-  logo: string | any;
+  logo: StaticImageData; 
   text: string;
   author: string;
   role: string;
@@ -95,15 +96,15 @@ export default function SmoothTestimonialsSlider({ autoSlideInterval = 5000 }: {
             }}
             className="absolute flex w-full flex-col items-center space-y-6"
           >
-            <img
-              src={testimonials[currentIndex].logo as any}
+            <Image
+              src={testimonials[currentIndex].logo}
               alt={`${testimonials[currentIndex].company} logo`}
-              width={80}
+              width={250}
               height={80}
-              className="rounded-full border-2 border-primary/20 shadow-md"
+              className="shadow-md"
             />
             <blockquote className="max-w-2xl text-center">
-              <p className="text-lg font-medium leading-relaxed text-foreground">"{testimonials[currentIndex].text}"</p>
+              <p className="text-lg font-medium leading-relaxed text-foreground">&quot;{testimonials[currentIndex].text}&quot;</p>
             </blockquote>
             <div className="text-center">
               <p className="text-base font-semibold text-primary">{testimonials[currentIndex].author}</p>
