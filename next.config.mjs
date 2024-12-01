@@ -4,6 +4,7 @@ const nextConfig = {
     unoptimized: true
   },
   experimental: {
+    // inlineCss: true,
     reactCompiler: true
   }
 };

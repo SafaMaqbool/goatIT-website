@@ -73,26 +73,35 @@ export function ContactForm() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="w-full max-w-lg rounded-xl bg-card p-8 shadow-lg"
+      className="border-brand/50 bg-background/80 w-full max-w-xl rounded-xl border p-8 shadow-lg"
     >
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 p-4">
         <div>
-          <Input {...register('name')} placeholder="Your Name" className="bg-background" />
-          {errors.name && <p className="mt-1 text-sm text-destructive">{errors.name.message}</p>}
+          <Input {...register('name')} placeholder="Your Name" className="bg-background/50 rounded-xl" />
+          {errors.name && <p className="text-destructive mt-1 text-sm">{errors.name.message}</p>}
         </div>
         <div>
-          <Input {...register('email')} type="email" placeholder="Your Email" className="bg-background" />
-          {errors.email && <p className="mt-1 text-sm text-destructive">{errors.email.message}</p>}
+          <Input {...register('email')} type="email" placeholder="Your Email" className="bg-background/50 rounded-xl" />
+          {errors.email && <p className="text-destructive mt-1 text-sm">{errors.email.message}</p>}
         </div>
         <div>
-          <Input {...register('subject')} placeholder="Subject" className="bg-background" />
-          {errors.subject && <p className="mt-1 text-sm text-destructive">{errors.subject.message}</p>}
+          <Input {...register('subject')} placeholder="Subject" className="bg-background/50 rounded-xl" />
+          {errors.subject && <p className="text-destructive mt-1 text-sm">{errors.subject.message}</p>}
         </div>
         <div>
-          <Textarea {...register('message')} placeholder="Your Message" className="bg-background" rows={4} />
-          {errors.message && <p className="mt-1 text-sm text-destructive">{errors.message.message}</p>}
+          <Textarea
+            {...register('message')}
+            placeholder="Your Message"
+            className="bg-background/50 rounded-xl"
+            rows={4}
+          />
+          {errors.message && <p className="text-destructive mt-1 text-sm">{errors.message.message}</p>}
         </div>
-        <Button type="submit" disabled={isSubmitting} className="w-full">
+        <Button
+          type="submit"
+          disabled={isSubmitting}
+          className="bg-brand hover:bg-brand/80 w-full rounded-xl text-white hover:cursor-pointer"
+        >
           {isSubmitting ? (
             <Loader2 className="mr-2 h-4 w-4 animate-spin" />
           ) : isSubmitted ? (

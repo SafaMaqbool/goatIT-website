@@ -14,12 +14,15 @@ import {
 } from '@/components/ui/navigation-menu';
 
 import { cn } from '@/lib/utils';
+import { usePathname } from 'next/navigation';
 
 export function DesktopMenu({
   links
 }: {
   links: { label: string; path: string; dropdown?: boolean; dropdownLinks?: { label: string; path: string }[] }[];
 }) {
+  const pathname = usePathname();
+
   return (
     <NavigationMenu className="hidden md:block">
       <NavigationMenuList>
@@ -41,11 +44,17 @@ export function DesktopMenu({
                 <NavigationMenuLink
                   className={cn(
                     navigationMenuTriggerStyle(),
-                    'group/1 relative isolate transition hover:text-green-400'
+                    'group/1 relative isolate transition hover:text-green-400',
+                    pathname === link.path && 'text-green-400'
                   )}
                 >
                   {link.label}
-                  <span className="absolute bottom-0 left-1/2 h-0.5 w-0 bg-linear-to-r from-green-400 to-blue-500 transition-all duration-300 group-hover/1:left-0 group-hover/1:w-full"></span>
+                  <span
+                    className={cn(
+                      'absolute bottom-0 left-1/2 h-0.5 w-0 bg-linear-to-r from-green-400 to-blue-500 transition-all duration-300 group-hover/1:left-0 group-hover/1:w-full',
+                      pathname === link.path && 'left-0 w-full'
+                    )}
+                  ></span>
                 </NavigationMenuLink>
               </Link>
             )}
@@ -58,21 +67,23 @@ export function DesktopMenu({
 
 const ListItem = React.forwardRef<React.ElementRef<'a'>, React.ComponentPropsWithoutRef<'a'>>(
   ({ className, title, href, ...props }, ref) => {
+    const pathname = usePathname();
     return (
       <li>
-        <Link href={href || '/'} legacyBehavior passHref>
-          <NavigationMenuLink asChild>
-            <Link
-              href={''} ref={ref}
-              className={cn(
-                'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-hidden transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
-                className
-              )}
-              {...props}            >
-              <div className="text-sm font-medium leading-none">{title}</div>
-            </Link>
-          </NavigationMenuLink>
-        </Link>
+        <NavigationMenuLink asChild>
+          <Link
+            href={href || '/'}
+            ref={ref}
+            className={cn(
+              'hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground block space-y-1 rounded-md p-3 leading-none no-underline outline-hidden transition-colors select-none',
+              pathname === href && 'bg-accent text-accent-foreground',
+              className
+            )}
+            {...props}
+          >
+            <div className="text-sm leading-none font-medium">{title}</div>
+          </Link>
+        </NavigationMenuLink>
       </li>
     );
   }

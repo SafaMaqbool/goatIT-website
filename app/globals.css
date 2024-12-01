@@ -12,6 +12,9 @@
   --color-white-200: #c1c2d3;
   --color-white: #fff;
 
+  /* theme */
+  --color-brand: hsl(var(--brand));
+
   --color-blue-100: #e4ecff;
 
   --color-purple: #cbacf9;
@@ -61,8 +64,7 @@
   --animate-third: moveInCircle 40s linear infinite;
   --animate-fourth: moveHorizontal 40s ease infinite;
   --animate-fifth: moveInCircle 20s ease infinite;
-  --animate-scroll: scroll var(--animation-duration, 40s)
-    var(--animation-direction, forwards) linear infinite;
+  --animate-scroll: scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite;
 
   @keyframes accordion-down {
     from {
@@ -176,6 +178,9 @@
     --background: 0 0% 3.9%;
     --foreground: 0 0% 98%;
 
+    /* theme */
+    --brand: 124, 45%, 47%;
+
     --card: 0 0% 3.9%;
     --card-foreground: 0 0% 98%;
 
@@ -194,7 +199,7 @@
     --accent: 0 0% 14.9%;
     --accent-foreground: 0 0% 98%;
 
-    --destructive: 0 62.8% 30.6%;
+    --destructive: 0 98% 60%;
     --destructive-foreground: 0 0% 98%;
 
     --border: 0 0% 14.9%;
@@ -210,7 +215,7 @@
 
 @layer base {
   * {
-    @apply scroll-smooth! border-border;
+    @apply border-border scroll-smooth!;
   }
 
   body {

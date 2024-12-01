@@ -1,92 +1,101 @@
-import AnimatedButton from '@/components/ui/AnimatedButton';
-import { AiFillSetting } from 'react-icons/ai';
-import { FaChalkboardTeacher, FaCode, FaHandshake, FaIndustry, FaTools } from 'react-icons/fa';
+'use client';
+
+import { services } from '@/app/data/erp-services';
+import { motion } from 'framer-motion';
 
 const Page = () => {
-  const services = [
-    {
-      title: 'Odoo Certified Partners',
-      description: 'Expertise and official partnership with Odoo.',
-      icon: <FaHandshake size={80} />,
-      altText: 'odoo certified partners icon'
-    },
-    {
-      title: 'Industry-Specific Solutions',
-      description:
-        'Extensive experience across various industries including retail, manufacturing, healthcare, and more.',
-      icon: <FaIndustry size={80} />,
-      altText: 'industry-specific solutions icon'
-    },
-    {
-      title: 'End-to-End Implementation',
-      description: 'From consultation to post-launch support, we manage the entire process.',
-      icon: <FaTools size={80} />,
-      altText: 'end-to-end implementation icon'
-    },
-    {
-      title: 'Custom Development & Integrations',
-      description: 'We customize and integrate Odoo modules to fit your unique business requirements.',
-      icon: <FaCode size={80} />,
-      altText: 'custom development and integrations icon'
-    },
-    {
-      title: 'Ongoing Support & Training',
-      description: 'Comprehensive user training and support even after implementation to ensure long-term success.',
-      icon: <FaChalkboardTeacher size={80} />,
-      altText: 'ongoing support and training icon'
-    },
-    {
-      title: 'System Configuration & Optimization',
-      description: 'Optimize your Odoo system for maximum performance and scalability.',
-      icon: <AiFillSetting size={80} />,
-      altText: 'system configuration icon'
-    }
-  ];
+  // Variants for staggered animation
+  const cardVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: (index: number) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: index * 0.1, // Delay for each service card to stagger
+        duration: 0.5
+      }
+    })
+  };
 
   return (
-    <div className="m-16 p-10">
-      <div className="flex flex-col items-center justify-center">
-        <h1 className="mb-4 text-center text-4xl font-bold uppercase leading-snug tracking-wide text-blue-100">
-          Odoo ERP Implementation Services
-        </h1>
-        <p className="max-w-[70ch] text-center text-xl">
-          Transform your business with a tailored Odoo ERP solution that meets your unique requirements and scales with
-          your growth.
-        </p>
-        <div className="overflow-hidden rounded-lg bg-white">
-          <img
-            className="mt-4 max-h-[30rem]"
-            src="https://i.pinimg.com/originals/68/35/c3/6835c30f379b5aeedf023ed82929e13f.png"
-            alt="odoo erp image"
-          />
-        </div>
-      </div>
+    <div className="m-16 min-h-screen bg-gradient-to-br from-green-900 via-teal-700 to-gray-900 p-10 text-white">
+      <div className="container mx-auto px-4 py-16 sm:px-6 lg:px-8">
+        {/* Hero Section */}
+        <section className="mb-20 text-center">
+          <motion.h1
+            className="mb-6 text-4xl leading-tight font-extrabold tracking-tight sm:text-5xl lg:text-6xl"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            Odoo ERP Implementation Services
+          </motion.h1>
+          <motion.p
+            className="mx-auto max-w-2xl text-xl text-blue-200 sm:text-2xl"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            Transform your business with a tailored Odoo ERP solution that meets your unique requirements and scales
+            with your growth.
+          </motion.p>
+        </section>
 
-      <div className="m-4 flex flex-col p-4">
-        <h2 className="text-center text-2xl font-medium">
-          Why Partner with GOAT IT CONSULTING for Odoo ERP Implementation?
-        </h2>
-        <p className="mt-4 text-center text-xl">
-          We are certified Odoo ERP specialists with a deep understanding of how to align the platform with your
-          business goals. Our team delivers custom-tailored ERP solutions that are scalable, efficient, and designed to
-          maximize ROI.
-        </p>
-      </div>
-
-      {/* Grid Layout */}
-      <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3">
-        {services.map((service, index) => (
-          <div key={index} className="flex h-full flex-col items-center rounded-lg bg-gray-800 p-6 text-center">
-            <div className="mb-4 flex h-40 w-40 items-center justify-center">{service.icon}</div>
-            <h1 className="mt-4 text-2xl font-semibold">{service.title}</h1>
-            <p className="mt-2 text-lg">{service.description}</p>
+        {/* Image Section */}
+        <motion.section
+          className="mb-20"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+        >
+          <div className="relative mx-auto aspect-video max-w-4xl overflow-hidden rounded-xl shadow-2xl">
+            <img
+              src="https://i.pinimg.com/originals/68/35/c3/6835c30f379b5aeedf023ed82929e13f.png"
+              alt="Odoo ERP"
+              className="h-full w-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
           </div>
-        ))}
-      </div>
+        </motion.section>
 
-      {/* Centered Contact Us Button */}
-      <div className="mt-10 flex justify-center">
-        <AnimatedButton icon="phone" label="Contact US Now" link="/contact" />
+        {/* Services Section */}
+        <section className="mb-20">
+          <h2 className="mb-12 text-center text-3xl font-bold sm:text-4xl">What We Offer</h2>
+          <motion.div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3" initial="hidden" animate="visible">
+            {services.map((service, index) => (
+              <motion.div
+                key={index}
+                className="group relative overflow-hidden rounded-lg bg-white/10 p-6 backdrop-blur-sm transition-all duration-300"
+                variants={cardVariants}
+                custom={index} // Pass the index to the variants for staggered delay
+              >
+                <div className="mb-4 text-center">
+                  <div className="mx-auto h-16 w-16 text-gray-800 transition-transform duration-300 group-hover:scale-110">
+                    <service.icon size={80} />
+                  </div>
+                </div>
+                <h3 className="mb-3 text-center text-xl font-semibold">{service.title}</h3>
+                <p className="text-center text-blue-200">{service.description}</p>
+                <div className="absolute inset-0 rounded-lg border-2 border-green-800 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+              </motion.div>
+            ))}
+          </motion.div>
+        </section>
+
+        {/* Call to Action */}
+        <motion.section
+          className="text-center"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.6 }}
+        >
+          <a
+            href="#contact"
+            className="inline-block rounded-full bg-blue-600 px-8 py-4 text-lg font-semibold text-white transition-all duration-300 hover:bg-blue-700 hover:shadow-lg"
+          >
+            Get Started Today
+          </a>
+        </motion.section>
       </div>
     </div>
   );

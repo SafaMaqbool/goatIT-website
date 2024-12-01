@@ -1,41 +1,11 @@
 'use client';
 
+import { testimonials } from '@/app/data/testimonials';
 import { AnimatePresence, motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import Image, { StaticImageData } from 'next/image';
+import Image from 'next/image';
 import { useCallback, useEffect, useState } from 'react';
 import { Button } from './ui/Button';
-
-import edolutions from '@/public/edolutions logo.png';
-import lunar from '@/public/lunar logo.jpg';
-
-type Testimonial = {
-  id: number;
-  company: string;
-  logo: StaticImageData;
-  text: string;
-  author: string;
-  role: string;
-};
-
-const testimonials: Testimonial[] = [
-  {
-    id: 1,
-    company: 'Edolutions',
-    logo: edolutions,
-    text: "Working with GOAT for our ERP development has been a transformative experience. Their team truly understood our operational challenges and delivered a tailored solution that streamlined our processes, enhanced our data management, and improved overall efficiency. From the initial consultation to the final implementation, their professionalism and technical expertise were exceptional. We couldn't have asked for a better partner.",
-    author: 'Talha Sami',
-    role: 'CEO'
-  },
-  {
-    id: 2,
-    company: 'Lunar Furniture',
-    logo: lunar,
-    text: 'The ERP system developed by GOAT has revolutionized the way we manage our inventory, orders, and customer relationships. Their ability to customize the platform to our specific business needs was remarkable. The seamless integration of all our processes has saved us time and resources, allowing us to focus on growth. We highly recommend GOAT to any company looking for a reliable ERP solution.',
-    author: 'Usman Mehanti',
-    role: 'CEO'
-  }
-];
 
 export default function SmoothTestimonialsSlider({ autoSlideInterval = 5000 }: { autoSlideInterval?: number }) {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -44,12 +14,12 @@ export default function SmoothTestimonialsSlider({ autoSlideInterval = 5000 }: {
   const nextTestimonial = useCallback(() => {
     setDirection(1);
     setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
-  }, [testimonials.length]);
+  }, []);
 
   const prevTestimonial = useCallback(() => {
     setDirection(-1);
     setCurrentIndex((prevIndex) => (prevIndex - 1 + testimonials.length) % testimonials.length);
-  }, [testimonials.length]);
+  }, []);
 
   useEffect(() => {
     const intervalId = setInterval(nextTestimonial, autoSlideInterval);
@@ -72,12 +42,9 @@ export default function SmoothTestimonialsSlider({ autoSlideInterval = 5000 }: {
   };
 
   return (
-    <div
-      id="#testimonials"
-      className="relative mx-auto w-full max-w-7xl overflow-hidden rounded-2xl bg-linear-to-br from-primary/5 to-secondary/5 p-8 shadow-lg"
-    >
-      <div className="absolute inset-0 bg-grid-primary/5 [mask-image:radial-gradient(white,transparent_70%)]" />
-      <h2 className="m-4 text-center text-4xl font-bold uppercase leading-snug tracking-wide text-blue-100">
+    <div className="from-primary/5 to-secondary/5 relative mx-auto w-full max-w-7xl overflow-hidden rounded-2xl bg-gradient-to-br p-8 shadow-lg">
+      <div className="bg-grid-primary/5 mask-radial-gradient absolute inset-0" />
+      <h2 className="m-4 text-center text-4xl leading-snug font-bold tracking-wide text-blue-100 uppercase">
         What Our Clients Say
       </h2>
       <div className="relative z-10 flex h-[400px] flex-col items-center justify-center">
@@ -100,16 +67,16 @@ export default function SmoothTestimonialsSlider({ autoSlideInterval = 5000 }: {
               alt={`${testimonials[currentIndex].company} logo`}
               width={250}
               height={80}
-              className="shadow-md"
+              className="rounded-md shadow-md"
             />
             <blockquote className="max-w-2xl text-center">
-              <p className="text-lg font-medium leading-relaxed text-foreground">
+              <p className="text-foreground text-lg leading-relaxed font-medium">
                 &quot;{testimonials[currentIndex].text}&quot;
               </p>
             </blockquote>
             <div className="text-center">
-              <p className="text-base font-semibold text-primary">{testimonials[currentIndex].author}</p>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-primary text-base font-semibold">{testimonials[currentIndex].author}</p>
+              <p className="text-muted-foreground text-sm">
                 {testimonials[currentIndex].role}, {testimonials[currentIndex].company}
               </p>
             </div>
@@ -117,22 +84,23 @@ export default function SmoothTestimonialsSlider({ autoSlideInterval = 5000 }: {
         </AnimatePresence>
       </div>
 
-      <div className="absolute inset-y-0 left-4 flex items-center">
+      {/* Next and Previous Buttons */}
+      <div className="absolute inset-y-0 left-4 z-10 flex items-center">
         <Button
           variant="ghost"
           size="icon"
-          className="rounded-full bg-background/50 backdrop-blur-xs transition-colors hover:bg-background/80"
+          className="bg-background/50 hover:bg-background/80 rounded-full backdrop-blur-xs transition-colors"
           onClick={prevTestimonial}
           aria-label="Previous testimonial"
         >
           <ChevronLeft className="h-6 w-6" />
         </Button>
       </div>
-      <div className="absolute inset-y-0 right-4 flex items-center">
+      <div className="absolute inset-y-0 right-4 z-10 flex items-center">
         <Button
           variant="ghost"
           size="icon"
-          className="rounded-full bg-background/50 backdrop-blur-xs transition-colors hover:bg-background/80"
+          className="bg-background/50 hover:bg-background/80 rounded-full backdrop-blur-xs transition-colors"
           onClick={nextTestimonial}
           aria-label="Next testimonial"
         >
@@ -140,11 +108,12 @@ export default function SmoothTestimonialsSlider({ autoSlideInterval = 5000 }: {
         </Button>
       </div>
 
-      <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 transform space-x-2">
+      {/* Dot indicators */}
+      <div className="absolute bottom-4 left-1/2 z-10 flex -translate-x-1/2 transform space-x-2">
         {testimonials.map((_, index) => (
           <motion.div
             key={index}
-            className={`h-1.5 rounded-full ${index === currentIndex ? 'w-6 bg-primary' : 'w-1.5 bg-primary/30'}`}
+            className={`h-1.5 rounded-full ${index === currentIndex ? 'bg-primary w-6' : 'bg-primary/30 w-1.5'}`}
             initial={false}
             animate={{ width: index === currentIndex ? 24 : 6 }}
             transition={{ duration: 0.3 }}

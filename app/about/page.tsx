@@ -1,7 +1,11 @@
+'use client';
+
+import { motion } from 'framer-motion';
+
 const About = () => {
   const sections = [
     {
-      title: 'Who We Are',
+      title: 'Who we are',
       text: 'At Goat IT Consulting, we empower businesses to navigate the digital landscape with innovative IT solutions tailored to your needs. Our mission is to drive growth and efficiency through strategic technology consulting, ensuring you stay ahead in a rapidly changing market.',
       imageUrl:
         'https://media.istockphoto.com/id/1373240838/photo/positive-team-motivation.jpg?s=612x612&w=0&k=20&c=zyLDqvjxYDV0nhKf7laXUcOer5ZW-FH864I9k6LXgjI=',
@@ -18,50 +22,46 @@ const About = () => {
   ];
 
   return (
-    <div className="mx-auto mt-20 flex max-w-4xl flex-col items-center gap-12 p-4">
-      {/* "Who We Are" Section */}
-      <div className="flex flex-col items-center text-center">
-        <h2 className="text-3xl font-bold uppercase leading-snug tracking-wide text-blue-100">{sections[0].title}</h2>
-        <div className="mt-4 w-full max-w-3xl">
-          <img
-            src={sections[0].imageUrl}
-            alt={sections[0].alt}
-            className="h-full w-full rounded-xl object-cover transition-all duration-500 ease-in-out hover:scale-105"
-          />
-        </div>
-        <p className="mt-4 max-w-2xl text-lg text-gray-300">{sections[0].text}</p>
-      </div>
+    <div className="from-brand m-16 min-h-screen bg-gradient-to-br via-green-900 to-teal-900 p-10 text-white">
+      <div className="container mx-auto px-4 py-16 sm:px-6 lg:px-8">
+        <motion.div
+          className="flex flex-col items-center text-center"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <h2 className="text-6xl leading-snug font-bold tracking-wide text-blue-100 uppercase">{sections[0].title}</h2>
+          <p className="mt-8 max-w-4xl text-lg text-gray-100">{sections[0].text}</p>
+        </motion.div>
 
-      {/* 2-Column Grid Section with ERP and Web Development Images */}
-      <div className="grid w-full max-w-3xl grid-cols-1 gap-8 sm:grid-cols-2">
-        {/* ERP Image */}
-        <div className="w-full">
-          <img
-            src="https://pioneersit.com/wp-content/uploads/2024/02/enterprise-resource-management-erp-software-system-business-resources-plan-scaled-1.jpg"
-            alt="ERP Software"
-            className="h-full w-full rounded-lg object-cover transition-all duration-500 ease-in-out hover:scale-105"
-          />
-        </div>
-        {/* Web Development Image */}
-        <div className="w-full">
-          <img
-            src="https://www.susla.edu/assets/susla/images/WebDevelopmentImage.jpeg"
-            alt="Web Development"
-            className="h-full w-full rounded-lg object-cover transition-all duration-500 ease-in-out hover:scale-105"
-          />
-        </div>
-      </div>
+        {/* 2-Column Grid Section with ERP and Web Development Images */}
+        <div className="mx-auto mt-24 grid w-full max-w-6xl gap-8 sm:grid-cols-2">
+          {/* "Our Mission" Section */}
+          <motion.div
+            className="flex flex-col items-center text-center"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+          >
+            <h2 className="text-4xl leading-snug font-bold tracking-wide text-blue-100 uppercase">
+              {sections[1].title}
+            </h2>
+            <p className="mt-4 max-w-2xl text-lg text-gray-300">{sections[1].text}</p>
+          </motion.div>
 
-      {/* "Our Mission" Section */}
-      <div className="flex flex-col items-center text-center">
-        <h2 className="text-2xl font-bold uppercase leading-snug tracking-wide text-blue-100">{sections[1].title}</h2>
-        <p className="mt-4 max-w-2xl text-lg text-gray-300">{sections[1].text}</p>
-      </div>
-
-      {/* "Our Vision" Section */}
-      <div className="flex flex-col items-center text-center">
-        <h2 className="text-2xl font-bold uppercase leading-snug tracking-wide text-blue-100">{sections[2].title}</h2>
-        <p className="mt-4 max-w-2xl text-lg text-gray-300">{sections[2].text}</p>
+          {/* "Our Vision" Section */}
+          <motion.div
+            className="flex flex-col items-center text-center"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+          >
+            <h2 className="text-4xl leading-snug font-bold tracking-wide text-blue-100 uppercase">
+              {sections[2].title}
+            </h2>
+            <p className="mt-4 max-w-2xl text-lg text-gray-300">{sections[2].text}</p>
+          </motion.div>
+        </div>
       </div>
     </div>
   );
