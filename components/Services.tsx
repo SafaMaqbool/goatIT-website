@@ -44,7 +44,7 @@ const Services = () => {
               <h3 className="mb-2 text-2xl font-semibold leading-snug tracking-wide text-green-400">{service.title}</h3>
               <p className="mb-4 text-gray-300">{service.description}</p>
               <Link href={service.link}>
-                <button className="inline-flex h-12 animate-shimmer items-center justify-center rounded-full border border-green-400 bg-[linear-gradient(110deg,#2e7d32,45%,#388e3c,55%,#2e7d32)] bg-[length:200%_100%] px-6 font-medium text-white transition-colors focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-offset-2 focus:ring-offset-gray-400">
+                <button className="inline-flex h-12 animate-shimmer items-center justify-center rounded-full border border-green-400 bg-[linear-gradient(110deg,#2e7d32,45%,#388e3c,55%,#2e7d32)] bg-[length:200%_100%] px-6 font-medium text-white transition-colors focus:outline-hidden focus:ring-2 focus:ring-green-400 focus:ring-offset-2 focus:ring-offset-gray-400">
                   Learn More
                 </button>
               </Link>

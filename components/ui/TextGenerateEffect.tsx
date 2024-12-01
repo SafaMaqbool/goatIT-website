@@ -25,7 +25,7 @@ export const TextGenerateEffect = ({
       'span',
       {
         opacity: 1,
-        filter: filter ? 'blur(0px)' : 'none'
+        filter: filter ? 'blur-sm(0px)' : 'none'
       },
       {
         duration: duration,
@@ -47,7 +47,7 @@ export const TextGenerateEffect = ({
             idx > coloredIndex ? 'text-[#41AD49]' : 'text-blue-100'
           )}
           style={{
-            filter: filter ? 'blur(10px)' : 'none'
+            filter: filter ? 'blur-sm(10px)' : 'none'
           }}
         >
           {word}{' '}

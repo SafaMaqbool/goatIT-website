@@ -16,7 +16,7 @@ const TailwindCssButtons = ({
   return (
     <button
       className="relative w-full inline-flex h-12 overflow-hidden rounded-full p-[1px] 
-      md:w-60 md:mt-10 focus:outline-none border border-emerald-600 hover:border-emerald-400"
+      md:w-60 md:mt-10 focus:outline-hidden border border-emerald-600 hover:border-emerald-400"
       onClick={handleClick}
     >
       <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#A6DCEF_0%,#005f73_50%,#A6DCEF_100%)]" />

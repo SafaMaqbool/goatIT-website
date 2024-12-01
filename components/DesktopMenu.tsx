@@ -45,7 +45,7 @@ export function DesktopMenu({
                   )}
                 >
                   {link.label}
-                  <span className="absolute bottom-0 left-1/2 h-0.5 w-0 bg-gradient-to-r from-green-400 to-blue-500 transition-all duration-300 group-hover/1:left-0 group-hover/1:w-full"></span>
+                  <span className="absolute bottom-0 left-1/2 h-0.5 w-0 bg-linear-to-r from-green-400 to-blue-500 transition-all duration-300 group-hover/1:left-0 group-hover/1:w-full"></span>
                 </NavigationMenuLink>
               </Link>
             )}
@@ -65,7 +65,7 @@ const ListItem = React.forwardRef<React.ElementRef<'a'>, React.ComponentPropsWit
             <Link
               href={''} ref={ref}
               className={cn(
-                'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
+                'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-hidden transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
                 className
               )}
               {...props}            >

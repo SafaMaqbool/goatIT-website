@@ -74,7 +74,7 @@ export default function SmoothTestimonialsSlider({ autoSlideInterval = 5000 }: {
   return (
     <div
       id="#testimonials"
-      className="relative mx-auto w-full max-w-7xl overflow-hidden rounded-2xl bg-gradient-to-br from-primary/5 to-secondary/5 p-8 shadow-lg"
+      className="relative mx-auto w-full max-w-7xl overflow-hidden rounded-2xl bg-linear-to-br from-primary/5 to-secondary/5 p-8 shadow-lg"
     >
       <div className="absolute inset-0 bg-grid-primary/5 [mask-image:radial-gradient(white,transparent_70%)]" />
       <h2 className="m-4 text-center text-4xl font-bold uppercase leading-snug tracking-wide text-blue-100">
@@ -121,7 +121,7 @@ export default function SmoothTestimonialsSlider({ autoSlideInterval = 5000 }: {
         <Button
           variant="ghost"
           size="icon"
-          className="rounded-full bg-background/50 backdrop-blur-sm transition-colors hover:bg-background/80"
+          className="rounded-full bg-background/50 backdrop-blur-xs transition-colors hover:bg-background/80"
           onClick={prevTestimonial}
           aria-label="Previous testimonial"
         >
@@ -132,7 +132,7 @@ export default function SmoothTestimonialsSlider({ autoSlideInterval = 5000 }: {
         <Button
           variant="ghost"
           size="icon"
-          className="rounded-full bg-background/50 backdrop-blur-sm transition-colors hover:bg-background/80"
+          className="rounded-full bg-background/50 backdrop-blur-xs transition-colors hover:bg-background/80"
           onClick={nextTestimonial}
           aria-label="Next testimonial"
         >
