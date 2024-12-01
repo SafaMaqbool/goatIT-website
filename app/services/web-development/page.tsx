@@ -61,13 +61,15 @@ const Page = () => {
         {/* Services Section */}
         <section className="mb-20">
           <h2 className="mb-12 text-center text-3xl font-bold sm:text-4xl">What We Offer</h2>
-          <motion.div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3" initial="hidden" animate="visible">
+          <motion.div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((service, index) => (
               <motion.div
                 key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
                 className="group relative overflow-hidden rounded-lg bg-white/10 p-6 backdrop-blur-sm transition-all duration-300 hover:bg-white/20"
-                variants={cardVariants}
-                custom={index} // Pass the index to the variants for staggered delay
               >
                 <div className="mb-4 text-center">
                   <service.icon className="mx-auto h-16 w-16 text-blue-400 transition-transform duration-300 group-hover:scale-110" />

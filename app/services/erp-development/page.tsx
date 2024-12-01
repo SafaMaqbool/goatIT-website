@@ -4,19 +4,6 @@ import { services } from '@/app/data/erp-services';
 import { motion } from 'framer-motion';
 
 const Page = () => {
-  // Variants for staggered animation
-  const cardVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: (index: number) => ({
-      opacity: 1,
-      y: 0,
-      transition: {
-        delay: index * 0.1, // Delay for each service card to stagger
-        duration: 0.5
-      }
-    })
-  };
-
   return (
     <div className="m-16 min-h-screen bg-gradient-to-br from-green-900 via-teal-700 to-gray-900 p-10 text-white">
       <div className="container mx-auto px-4 py-16 sm:px-6 lg:px-8">
@@ -61,13 +48,15 @@ const Page = () => {
         {/* Services Section */}
         <section className="mb-20">
           <h2 className="mb-12 text-center text-3xl font-bold sm:text-4xl">What We Offer</h2>
-          <motion.div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3" initial="hidden" animate="visible">
+          <motion.div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((service, index) => (
               <motion.div
                 key={index}
                 className="group relative overflow-hidden rounded-lg bg-white/10 p-6 backdrop-blur-sm transition-all duration-300"
-                variants={cardVariants}
-                custom={index} // Pass the index to the variants for staggered delay
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
               >
                 <div className="mb-4 text-center">
                   <div className="mx-auto h-16 w-16 text-gray-800 transition-transform duration-300 group-hover:scale-110">
