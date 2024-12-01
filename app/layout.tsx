@@ -1,18 +1,12 @@
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar'; // Adjust the path to where your Navbar is located
 import type { Metadata } from 'next';
-import localFont from 'next/font/local';
+import { Geist } from 'next/font/google';
 import './globals.css';
 
-const geistSans = localFont({
-  src: './fonts/GeistVF.woff',
-  variable: '--font-geist-sans',
-  weight: '100 900'
-});
-const geistMono = localFont({
-  src: './fonts/GeistMonoVF.woff',
-  variable: '--font-geist-mono',
-  weight: '100 900'
+const geistSans = Geist({
+  display: 'swap',
+  variable: '--font-geist-sans'
 });
 
 export const metadata: Metadata = {
@@ -27,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className={`${geistSans.className} antialiased`}>
         <Navbar />
         <main>{children}</main>
         <Footer />
