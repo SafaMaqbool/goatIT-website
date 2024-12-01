@@ -2,18 +2,17 @@
 
 import { AnimatePresence, motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import Image, { StaticImageData } from 'next/image';
+import { useCallback, useEffect, useState } from 'react';
 import { Button } from './ui/Button';
-import Image, { StaticImageData } from 'next/image'; 
 
 import edolutions from '@/public/edolutions logo.png';
 import lunar from '@/public/lunar logo.jpg';
 
-
 type Testimonial = {
   id: number;
   company: string;
-  logo: StaticImageData; 
+  logo: StaticImageData;
   text: string;
   author: string;
   role: string;
@@ -42,20 +41,20 @@ export default function SmoothTestimonialsSlider({ autoSlideInterval = 5000 }: {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
 
-  const nextTestimonial = () => {
+  const nextTestimonial = useCallback(() => {
     setDirection(1);
     setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
-  };
+  }, [testimonials.length]);
 
-  const prevTestimonial = () => {
+  const prevTestimonial = useCallback(() => {
     setDirection(-1);
     setCurrentIndex((prevIndex) => (prevIndex - 1 + testimonials.length) % testimonials.length);
-  };
+  }, [testimonials.length]);
 
   useEffect(() => {
     const intervalId = setInterval(nextTestimonial, autoSlideInterval);
     return () => clearInterval(intervalId);
-  }, [autoSlideInterval]);
+  }, [autoSlideInterval, nextTestimonial]);
 
   const variants = {
     enter: (direction: number) => ({
@@ -78,7 +77,7 @@ export default function SmoothTestimonialsSlider({ autoSlideInterval = 5000 }: {
       className="relative mx-auto w-full max-w-7xl overflow-hidden rounded-2xl bg-gradient-to-br from-primary/5 to-secondary/5 p-8 shadow-lg"
     >
       <div className="absolute inset-0 bg-grid-primary/5 [mask-image:radial-gradient(white,transparent_70%)]" />
-      <h2 className="font-bold m-4 text-center text-4xl uppercase leading-snug tracking-wide text-blue-100">
+      <h2 className="m-4 text-center text-4xl font-bold uppercase leading-snug tracking-wide text-blue-100">
         What Our Clients Say
       </h2>
       <div className="relative z-10 flex h-[400px] flex-col items-center justify-center">
@@ -104,7 +103,9 @@ export default function SmoothTestimonialsSlider({ autoSlideInterval = 5000 }: {
               className="shadow-md"
             />
             <blockquote className="max-w-2xl text-center">
-              <p className="text-lg font-medium leading-relaxed text-foreground">&quot;{testimonials[currentIndex].text}&quot;</p>
+              <p className="text-lg font-medium leading-relaxed text-foreground">
+                &quot;{testimonials[currentIndex].text}&quot;
+              </p>
             </blockquote>
             <div className="text-center">
               <p className="text-base font-semibold text-primary">{testimonials[currentIndex].author}</p>
