@@ -18,7 +18,7 @@ const Page = () => {
   };
 
   return (
-    <div className="m-16 min-h-screen bg-linear-to-br from-blue-900 via-purple-900 to-indigo-900 p-10 text-white">
+    <div className="lg:mx:12 mx-6 my-16 min-h-screen bg-linear-to-br from-blue-900 via-purple-900 to-indigo-900 p-10 text-white sm:mx-8 xl:mx-16">
       <div className="container mx-auto px-4 py-16 sm:px-6 lg:px-8">
         {/* Hero Section */}
         <section className="mb-20 text-center">
