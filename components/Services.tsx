@@ -14,7 +14,7 @@ const services = [
     description: 'Custom website development to enhance your online presence.',
     link: '/services/web-development', // Link to detailed page
     image:
-      'https://media.istockphoto.com/id/1371339413/photo/co-working-team-meeting-concept-businessman-using-smart-phone-and-digital-tablet-and-laptop.jpg?b=1&s=612x612&w=0&k=20&c=5f5qgmdm1_isNCz_ISP61-2QPfEtRl0Fz1ZVplTD7ek=' // Valid external image
+      '/web.jpg' // Valid external image
   }
 ];
 
@@ -35,9 +35,8 @@ const Services = () => {
                   <img
                     src={service.image}
                     alt={service.title}
-                    width={500}
-                    height={300}
-                    className="object-cover transition-transform duration-300 group-hover:scale-110"
+                    
+                    className="object-cover transition-transform h-72 w-full items-center duration-300 group-hover:scale-110"
                   />
                 </div>
               )}
