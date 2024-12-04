@@ -44,7 +44,7 @@ export default function SmoothTestimonialsSlider({ autoSlideInterval = 5000 }: {
   return (
     <div className="from-primary/5 to-secondary/5 relative mx-auto w-full max-w-7xl overflow-hidden rounded-2xl bg-gradient-to-br p-8 shadow-lg">
       <div className="bg-grid-primary/5 mask-radial-gradient absolute inset-0" />
-      <h2 className="m-4 text-center text-4xl leading-snug font-bold tracking-wide text-blue-100 uppercase">
+      <h2 className="m-4 text-center text-3xl md:text-4xl leading-snug font-bold tracking-wide text-blue-100 uppercase">
         What Our Clients Say
       </h2>
       <div className="relative z-10 flex h-[400px] flex-col items-center justify-center">
