@@ -1,5 +1,6 @@
 'use client';
 
+import AnimatedButton from '@/components/ui/AnimatedButton';
 import { motion } from 'framer-motion';
 
 const About = () => {
@@ -35,7 +36,7 @@ const About = () => {
         </motion.div>
 
         {/* 2-Column Grid Section with ERP and Web Development Images */}
-        <div className="mx-auto mt-24 grid w-full max-w-6xl gap-8 sm:grid-cols-2">
+        <div className="mx-auto mt-24 grid w-full max-w-6xl gap-8 md:grid-cols-2">
           {/* "Our Mission" Section */}
           <motion.div
             className="flex flex-col items-center text-center"
@@ -43,7 +44,7 @@ const About = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
-            <h2 className="text-4xl leading-snug font-bold tracking-wide text-blue-100 uppercase">
+            <h2 className="text-2xl leading-snug font-bold tracking-wide text-blue-100 uppercase md:text-3xl">
               {sections[1].title}
             </h2>
             <p className="mt-4 max-w-2xl text-lg text-gray-300">{sections[1].text}</p>
@@ -56,12 +57,15 @@ const About = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.5 }}
           >
-            <h2 className="text-4xl leading-snug font-bold tracking-wide text-blue-100 uppercase">
+            <h2 className="text-2xl leading-snug font-bold tracking-wide text-blue-100 uppercase md:text-3xl">
               {sections[2].title}
             </h2>
             <p className="mt-4 max-w-2xl text-lg text-gray-300">{sections[2].text}</p>
           </motion.div>
         </div>
+      </div>
+      <div className='flex justify-center items-center'>
+        <AnimatedButton icon="phone" label="Contact US Now" link="/contact" />
       </div>
     </div>
   );
