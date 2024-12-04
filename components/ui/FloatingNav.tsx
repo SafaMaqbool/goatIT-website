@@ -32,7 +32,7 @@ export const FloatingNav = ({
           </Link>
         ))}
 
-        <button className="relative rounded-full border border-neutral-200 border-white/[0.2] px-4 py-2 text-sm font-medium text-white">
+        <button className="relative rounded-full border border-neutral-200  px-4 py-2 text-sm font-medium text-white">
           <span>Login</span>
           <span className="absolute inset-x-0 -bottom-px mx-auto h-px w-1/2 bg-linear-to-r from-transparent via-blue-500 to-transparent" />
         </button>
