@@ -59,7 +59,9 @@ const About = () => {
         transition={{ type: 'spring', duration: 0.5 }}
         className="order-2 flex flex-col justify-center text-center md:order-1 md:text-left"
       >
-        <h3 className="text-4xl leading-snug font-bold tracking-wide text-blue-100 uppercase">Who We Are?</h3>
+        <h3 className="md:text-4xl text-3xl leading-snug font-bold tracking-wide text-blue-100 uppercase">
+          Who We Are?
+        </h3>
         <p className="mt-4 max-w-[50ch]">
           At Goat IT Consulting, we empower businesses to navigate the digital landscape with innovative IT solutions
           tailored to your needs.

@@ -22,7 +22,7 @@ const Services = () => {
   return (
     <section className="my-36 py-16">
       <div className="mx-auto max-w-7xl px-6 text-center">
-        <h2 className="mb-12 text-5xl font-bold text-white uppercase">Our Services</h2>
+        <h2 className="mb-12 text-3xl md:text-4xl font-bold text-white uppercase">Our Services</h2>
         <div className="flex flex-wrap justify-center gap-8">
           {services.map((service, index) => (
             <div
