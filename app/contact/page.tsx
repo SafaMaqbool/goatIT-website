@@ -17,8 +17,8 @@ const Page: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="mb-2 text-5xl leading-snug font-bold tracking-wide text-blue-100 uppercase">Contact Us</h2>
-          <h1 className="mb-4 text-4xl leading-snug font-bold tracking-wide text-blue-100 uppercase">
+          <h2 className="mb-2 md:text-5xl text-4xl leading-snug font-bold tracking-wide text-blue-100 uppercase">Contact Us</h2>
+          <h1 className="mb-4 md:text-4xl text-3xl leading-snug font-bold tracking-wide text-blue-100 uppercase">
             We&#39;d love to hear from you!
           </h1>
           <p className="mb-8 text-xl text-gray-300">
